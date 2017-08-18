@@ -3,6 +3,12 @@
 
 @import "{{ site.theme }}";
 
+h1 {
+  font-size: 22px;
+}
+h2 {
+  font-size: 1.4em;
+}
 
 @media print, screen and (max-width: 1200px) {
 
