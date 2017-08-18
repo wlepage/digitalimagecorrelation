@@ -4,7 +4,7 @@
 @import "{{ site.theme }}";
 
 
-@media print, screen and (max-width: 960px) {
+@media print, screen and (max-width: 1200px) {
 
   div.wrapper {
     width:auto;
@@ -18,7 +18,7 @@
   }
 
   header {
-    padding-right:0;
+    padding-right:320px;
   }
 
   section {
@@ -33,7 +33,9 @@
   }
 
   header ul {
-    position:static;
+    position:absolute;
+    right:50px;
+    top:52px;
   }
 }
 
