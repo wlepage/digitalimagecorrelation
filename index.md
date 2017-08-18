@@ -2,9 +2,11 @@
 layout: default
 ---
 
-{:toc}
-
 Text can be **bold**, _italic_, or ~~strikethrough~~.
+
+<ol>
+{:toc}
+</ol>
 
 [Link to another page](another-page).
 
