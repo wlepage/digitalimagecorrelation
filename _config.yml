@@ -1,1 +1,4 @@
-theme: jekyll-theme-tactile
+title: DigitalImageCorrelation.org
+description: A practical guide for DIC.
+google_analytics: UA-104922373-1
+theme: jekyll-theme-minimal
