@@ -9,6 +9,10 @@ h1 {
 h2 {
   font-size: 1.4em;
 }
+a:hover, a:focus {
+  color: #333;
+  font-weight: normal;
+}
 
 @media print, screen and (max-width: 1200px) {
 
