@@ -8,4 +8,4 @@ Digital image correlation (DIC) is a surface displacement measurement technique 
 # [](#fundamentals)DIC fundamentals
 The basic operation of DIC is tracking a pattern in a sequence of images. The first image in the sequence is defined as the reference configuration, or the baseline to which the other images are compared. DIC matches the pattern between the reference image and a deformed image, and then calculates the pattern's displacements between the reference and deformed images.
 
-
+![DIC basics]({{site.baseurl}}/assets/img/DICbasics-01.png)
