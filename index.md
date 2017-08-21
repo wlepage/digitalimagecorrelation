@@ -34,7 +34,7 @@ DIC is commonly utilized to study the mechanical properties of solids. One of th
 1. The most DIC codes perform _local DIC_, which matches subsets of the pattern as described here. However, there are also _global DIC_ algorithms that match the entire pattern in one go. See more details on this in the section on [DIC types](#DICtypes).
 2. The subsets in many local DIC codes are restricted to square shapes in the reference configuation, but some DIC codes permit non-square subsets (see [DIC codes](#DICcodes)).
 
-### Futher reading on DIC fundamentals
+### Futher reading
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [http://doi.org/10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
@@ -45,13 +45,18 @@ There are multiple ways to categorize DIC algorithms. One is by the dimensions o
 
 A second way to categorize DIC algorithms is by the pattern matching technique. The pattern can be separated into multiple subsets that are individually matched. This is called _local DIC_. Alternatively, the pattern can be matched in one go using a finite-element based approach. This is called _global DIC_. 
 
-### Futher reading on DIC fundamentals
+### Futher reading
 1. (2-D and 3-D DIC) Sutton, M. A., et al. "The effect of out-of-plane motion on 2D and 3D digital image correlation measurements." Optics and Lasers in Engineering 46.10 (2008): 746-757. [https://doi.org/10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)
 1. (digital volume correlation, DVC) Franck, C., et al. "Three-dimensional full-field measurements of large deformations in soft materials using confocal microscopy and digital volume correlation." Experimental Mechanics 47.3 (2007): 427-438. [https://doi.org/10.1007/s11340-007-9037-9](https://doi.org/10.1007/s11340-007-9037-9)
 1. (local and global DIC) François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012. 
 
 <a name="patterning"></a>
 # Speckle patterning
+
+To match the reference and deformed images, DIC tracks features on the sample surface that collectively form the _speckle pattern_. Occassionally, a sample's surface will inherently have features suffice for a _natural_ speckle pattern, but typically an _artificial_ speckle pattern must be applied to the sample. 
+
+<a name="imaging"></a>
+# Image capturing
 
 <a name="DICcodes"></a>
 # Comparison of DIC codes
@@ -60,13 +65,14 @@ A second way to categorize DIC algorithms is by the pattern matching technique. 
 + 1.	DIC fundamentals
 2.	Spline interpolation and saturated pixels
 3.	Image capturing: cameras, microscopes, and more
-4.	2D vs 3D vs DVC
-5.	Speckle patterning
-a.	General needs: size (aliasing), density, contrast (bimodal)
-b.	Methods: paint, inks and dyes, powder particles, nanoparticles
-c.	Multiscale (paper that you reviewed), Kammers
 6.	Setup photos, cross polarization
 7.	Common cameras, lenses, and lights
++ 4.	2D vs 3D vs DVC
+5.	Speckle patterning
+	a.	General needs: size (aliasing), density, contrast (bimodal)
+	b.	Methods: paint, inks and dyes, powder particles, nanoparticles
+	c.	Multiscale (paper that you reviewed), Kammers
+
 8.	Blurring (how fast to capture images?)
 9.	Noise floor (how small can you go?)
 10.	Common codes (open source and commercial, link to DIC Challenge)
