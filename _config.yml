@@ -1,5 +1,5 @@
 title: DigitalImageCorrelation.org
 description: A practical guide for DIC.
-markdown: maruku
+markdown: kramdown
 google_analytics: UA-104922373-1
 theme: jekyll-theme-minimal
