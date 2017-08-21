@@ -8,20 +8,28 @@ Digital image correlation (DIC) is a surface displacement measurement technique 
 The content of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is organized for DIC learners to gather the most important information by reading from start to finish, while more experienced users can jump ahead to a section of interest. At the conclusion of each section, links are provided to more detailed resources.
 
 # [](#fundamentals)DIC fundamentals
-The basic operation of DIC is tracking a pattern (often called a [_speckle pattern_](#patterning)) in a sequence of images. The first image in the sequence is defined as the __reference__ configuration, or the baseline to which the other images are compared. DIC matches the pattern between the reference image and a deformed image, and then calculates the pattern's displacements between the reference and deformed images.
+The basic operation of DIC is tracking a pattern (often called a [_speckle pattern_](#patterning)) in a sequence of images. The first image in the sequence is defined as the _reference_ image, or the baseline to which the other images are compared. DIC matches the pattern between the reference image and a deformed image, and then calculates the pattern's displacements between the reference and deformed images.
 
 The basic process of a DIC calculation is illustrated below.
-(a) The reference image has a recognizable pattern
-
+(a) The reference image has a recognizable pattern of dots that will be tracked.
+(b) A portion of the pattern, called a _subset_, is selected for tracking.
+(c) The center of the subset (the red dot, which is _not_ part of the speckle pattern) is the place in the reference image from which the displacement will be calculated.
+(d) After the material is deformed from the reference image's initial position, the subset in the deformed image is matched to the subset from the reference image. 
+(e) Once the subset is matched, DIC calculates the subset center's relative displacement between the reference and deformed images. The displacement here is the (small) difference between the blue and red dots. The next example will show how this basic operation is extended to multiple subsets and DIC points. 
 ![DIC subset]({{site.baseurl}}/assets/img/DICsubset-01.png)
 
+The previous example computed the displacements from one subset, but DIC can compute a _field_ of displacements by tracking multiple subsets. The same procedure as before is repeated, except this time with four equally-sized subsets in a two-by-two grid. This yields four more points with displacement information, for a total of five data points.
 ![DIC subsets]({{site.baseurl}}/assets/img/DICsubsets-01.png)
 
+From the five subsets (one from the first example, and four more from the second example), there are five total points for which the displacements have been calculated. Each of these points can be referred to as a _DIC point_. The displacement at each DIC point is a vector, so the components of the vector can be decomposed. For two dimensions of displacement, the components can be written in a Cartesian coordinate system as the horizontal displacement (_u_) and vertical displacement (_v_). Three dimensions of displacements (_u_, _v_, and _w_) can also be measured with a more complicated type of DIC that uses triangulation – more on this in the section on the [main types of DIC](#DICtypes).
 ![DIC points]({{site.baseurl}}/assets/img/DICfivepoints-01.png)
 
 ![DIC basics]({{site.baseurl}}/assets/img/DICbasics-01.png)
 
 ### Futher reading on DIC fundamentals
+1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
+1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [http://doi.org/10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
+1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
 
 
 # [](#patterning)Speckle patterning
