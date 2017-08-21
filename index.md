@@ -43,12 +43,12 @@ DIC is commonly utilized to study the mechanical properties of solids. One of th
 # General types of DIC algorithms
 There are multiple ways to categorize DIC algorithms. One is by the dimensions of the calculated displacements. For images collected by just one camera, only two dimensions of displacements can be known. This is called two-dimensional, or _2-D DIC_ (also commonly written as 2D-DIC). When images from more than one camera are used, depth can be measured with triangulation. This is called three-dimensional, or _3-D DIC_ (also commonly written as 3D-DIC). An important note is that 3-D DIC can only measure displacements on the surface of a material, not within the three-dimensional volume of a material. To measure displacements within a solid, the imaging system must be able to see inside the material, and the algorithms of DIC must be extended to capture displacements through the volume. This extension of DIC from _pixels_ to _voxels_ is called digital _volume_ correlation (DVC). Two examples of imaging systems that can see inside materials are X-ray tomography and confocal microscopy.
 
-A second way to categorize DIC algorithms is by the pattern matching technique. The pattern can be separated into multiple subsets 
+A second way to categorize DIC algorithms is by the pattern matching technique. The pattern can be separated into multiple subsets that are individually matched. This is called _local DIC_. Alternatively, the pattern can be matched in one go using a finite-element based approach. This is called _global DIC_. 
 
 ### Futher reading on DIC fundamentals
 1. (2-D and 3-D DIC) Sutton, M. A., et al. "The effect of out-of-plane motion on 2D and 3D digital image correlation measurements." Optics and Lasers in Engineering 46.10 (2008): 746-757. [https://doi.org/10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)
 1. (digital volume correlation, DVC) Franck, C., et al. "Three-dimensional full-field measurements of large deformations in soft materials using confocal microscopy and digital volume correlation." Experimental Mechanics 47.3 (2007): 427-438. [https://doi.org/10.1007/s11340-007-9037-9](https://doi.org/10.1007/s11340-007-9037-9)
-1. (local and global DIC) François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
+1. (local and global DIC) François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012. 
 
 <a name="patterning"></a>
 # Speckle patterning
