@@ -14,7 +14,7 @@ The basic operation of DIC is tracking a pattern (often called a [_speckle patte
 
 The basic process of a DIC calculation is illustrated below.
 (a) The reference image has a recognizable pattern of dots that will be tracked.
-(b) A portion of the pattern, called a _subset_, is selected for tracking.<sup>[1](#footnotes-fundamentals)</sup>
+(b) A portion of the pattern, called a _subset_, is selected for tracking.<sup>[a](#footnotes-fundamentals)</sup>
 (c) The center of the subset (the red dot, which is _not_ part of the speckle pattern) is the place in the reference image from which the displacement will be calculated.
 (d) After the material is deformed from the reference image's initial position, the subset in the deformed image is matched to the subset from the reference image. 
 (e) Once the subset is matched, DIC calculates the subset center's relative displacement between the reference and deformed images. The displacement here is the (small) difference between the blue and red dots. The next example will show how this basic operation is extended to multiple subsets and DIC points. 
@@ -23,7 +23,7 @@ The basic process of a DIC calculation is illustrated below.
 The previous example computed the displacements from one subset, but DIC can compute a _field_ of displacements by tracking multiple subsets. The same procedure as before is repeated, except this time with four equally-sized subsets in a two-by-two grid. This yields four more points with displacement information, for a total of five data points.
 <br /><br />![DIC subsets]({{site.baseurl}}/assets/img/DICsubsets-01.png)<br /><br />
 
-From the five subsets (one from the first example, and four more from the second example), there are five total points for which the displacements have been calculated. Each of these points can be referred to as a _DIC point_. Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square<sup>[2](#footnotes-fundamentals)</sup> in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels.
+From the five subsets (one from the first example, and four more from the second example), there are five total points for which the displacements have been calculated. Each of these points can be referred to as a _DIC point_. Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square<sup>[b](#footnotes-fundamentals)</sup> in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels.
 
 The displacement at each DIC point is a vector, so the components of the vector can be decomposed. For two dimensions of displacement, the components can be written in a Cartesian coordinate system as the horizontal displacement (_u_) and vertical displacement (_v_). Three dimensions of displacements (_u_, _v_, and _w_) can also be measured with a more complicated type of DIC that uses triangulation -- more on this in the section on the [main types of DIC](#DICtypes).
 <br /><br />![DIC points]({{site.baseurl}}/assets/img/DICfivepoints-01.png)<br /><br />
@@ -33,8 +33,8 @@ DIC is commonly utilized to study the mechanical properties of solids. One of th
 
 <a name="footnotes-fundamentals"></a>
 ### Footnotes
-1. The most DIC codes perform _local DIC_, which matches subsets of the pattern as described here. However, there are also _global DIC_ algorithms that match the entire pattern in one go. See more details on this in the section on [DIC types](#DICtypes).
-2. The subsets in many local DIC codes are restricted to square shapes in the reference configuration, but some DIC codes permit non-square subsets (see [DIC codes](#DICcodes)).
+a. The most DIC codes perform _local DIC_, which matches subsets of the pattern as described here. However, there are also _global DIC_ algorithms that match the entire pattern in one go. See more details on this in the section on [DIC types](#DICtypes).
+b. The subsets in many local DIC codes are restricted to square shapes in the reference configuration, but some DIC codes permit non-square subsets (see [DIC codes](#DICcodes)).
 
 ### Further reading
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
@@ -55,16 +55,36 @@ A second way to categorize DIC algorithms is by the pattern matching technique. 
 <a name="patterning"></a>
 # Speckle patterning
 
-To match the reference and deformed images, DIC tracks features on the sample surface that collectively form the _speckle pattern_. Occasionally, a sample's surface will inherently have features suffice for a _natural_ speckle pattern, but typically an _artificial_ speckle pattern must be applied to the sample. 
+To match the reference and deformed images, DIC tracks features on the sample surface that collectively form the _speckle pattern_. Occasionally, a sample's surface will inherently have features suffice for a _natural_ speckle pattern, but typically an _artificial_ speckle pattern must be applied to the sample. The quality of DIC results are strongly dependent on the speckle pattern, and optimum speckle patterns meet the following conditions.
+1. The pattern covers the sample surface and moves/deforms with the sample, but does not exert a significant mechanical stress on the sample. In other words, the pattern is fully adhered to the sample, but deforms extremely easily compared to the sample. 
+2. The features that comprise the pattern (the _speckles_) are random in position but uniform in size. The speckle size is at least 3 pixels to avoid aliasing<sup>[1-3](#references-speckles)</sup>, but not much more than 7 pixels to achieve a relatively high density of DIC points<sup>[4](#references-speckles)</sup>. If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. 
+3. Good contrast<sup>[5](#references-speckles), histogram looks like a bimodal distribution</sup>
+4. Density of about 50% (under patterned = speckles too big and too small, Reu; it's important to note that these are not average speckle sizes, these are the dimensions of the smallest and the largest speckles [Reu 2015, doi:10.1111/ext.12110],
+)
+5. Stability in in the testing environment (e.g. high temp)
 
-Let's test some inline math $$x$$, $$y$$, $$x_1$$, $$y_1$$.
 
-And test a display math without equaltion number:
+Methods: paint, inks and dyes, powder particles, nanoparticles
+in the case of painted patterns, using white paint as the background and black as the speckles is superior because the black-on-white maintains higher contrast in the black speckles than white-on-black because black paint has much higher hiding power than white paint (see our article on this and micrograph below)
+https://link.springer.com/article/10.1007/s40799-017-0192-3
+* if your experiments have large deformations and/or strain rates, plan to run the experiment within 24-48 hours of painting; the paint will harden and lose its ability to deform with the sample Reu 2015, doi: 10.1111/ext.12147
+Multiscale (paper that you reviewed), Kammers
+
+compute the speckle size bounds by dividing the FOV width in millimeters by the FOV width in pixels times 3 and 7:
 \begin{align\*}
-    |\psi_1\rangle &= a|0\rangle + b|1\rangle \\\\
-    |\psi_2\rangle &= c|0\rangle + d|1\rangle
+12 \text{mm} / 2048 \text{px} * \left(3 \text{to} 7 \text{px per speckle}\right) = 18 \text{to} 41 \text{microns per speckle} 
 \end{align\*}
-Is it O.K.?
+
+<a name="references-speckles"></a> 
+### References
+1. Bruck, H. A., et al. "Digital image correlation using Newton-Raphson method of partial differential correction." Experimental mechanics 29.3 (1989): 261-267. [https://doi.org/10.1007/BF02321405](https://doi.org/10.1007/BF02321405)
+1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [http://doi.org/10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
+1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
+1. Reu, Phillip. "All about speckles: speckle size measurement." Experimental Techniques 38.6 (2014): 1-2. [http://doi.org/10.1111/ext.12110](http://doi.org/10.1111/ext.12110)
+1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [http://doi.org/10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
+
+### Further reading
+
 
 <a name="imaging"></a>
 # Image capturing
@@ -73,18 +93,62 @@ Is it O.K.?
 # Comparison of DIC codes
 
 
-+ 1.	DIC fundamentals
-2.	Spline interpolation and saturated pixels
-3.	Image capturing: cameras, microscopes, and more
-6.	Setup photos, cross polarization
-7.	Common cameras, lenses, and lights
-+ 4.	2D vs 3D vs DVC
++ Subset size selection, spline interpolation, and saturated pixels (at least 3 specks/subset = Big Red; bigger subsets = better pattern matching with reference image, but smooths out the DIC data (lower spatial resolution) and also increases computation time.) 
++ Image capturing: cameras, microscopes, and more
++ Setup photos, cross polarization
++ Common cameras, lenses, and lights
+
 5.	Speckle patterning
-	a.	General needs: size (aliasing), density, contrast (bimodal)
-	b.	Methods: paint, inks and dyes, powder particles, nanoparticles
-	c.	Multiscale (paper that you reviewed), Kammers
+	a.	
+	b.	
+	c.	
 
 8.	Blurring (how fast to capture images?)
 9.	Noise floor (how small can you go?)
 10.	Common codes (open source and commercial, link to DIC Challenge)
+
+Camera setup
+* first check and clean the cameras, lenses, and filters (UV or polarized)
+    * clean lenses and cameras are super important, but you can really mess stuff up if you introduce scratches, so be very careful
+    * read this great guide from B&H on cleaning lenses and cameras: http://www.bhphotovideo.com/explora/photography/tips-and-solutions/how-clean-your-lens-and-filters
+    * this guide is also good: https://www.borrowlenses.com/blog/2016/08/how-to-clean-a-camera-lens/
+    * there are a couple different ways to look for dust
+        1. by shining a flashlight on the lens or sensor cover
+        2. by pointing the camera at a uniform, diffuse, bright light (e.g. light panel) and increasing the exposure just until the FOV is mostly saturated, then moving the camera and seeing and darker spots in the view that don't move while you're moving the camera
+* cross polarize the lights and lenses to eliminate pernicious saturated pixels, and also boost the contrast a little (lowers errors by about 10%), https://doi.org/10.1007/s11340-016-0129-2 
+* do not just blow air at the lenses from an air can or from your mouth
+    * air cans and mouth blowing introduce moisture and condensation on the lens that leave a residue
+    * use a photography type duster instead
+    * if the duster doesn't get everything, then escalate to tissues
+    * only use new, clean lens cleaning tissues that have been moistened with lens cleaning solution
+    * the lens cleaning kit is stored in GGB 3673 on the shelf near the fume hood
+* use the mid-range apertures, say f/5.6, f/8, or f/11 for an f/1.8 to f/22 lens (the more extreme apertures introduce more distortions in the imaging)
+* see the "stereo-rig design" series from Phil Reu for lots of great info, starting with Part 1 of 4, Creating the Stereo-Rig Layout [Reu 2012, doi: 10.1111/j.1747-1567.2012.00871.x]
+* good focus is critical
+    * make sure that the most important region in your area of interest is the best-focused area
+    * do not follow the directives of the Vic3D manual for focusing, which say to focus at the largest aperture setting (smallest number), and then close the aperture to the desired opening -- this is not a good idea because the depth of focus in the sample does not scale equally both towards and away from the camera whenever the aperture is closed (J. Wayne Jones in MSE, an avid photographer, confirmed that this is not how lenses behave, and one of Shaw's summer students Arnaud measured this)
+* lighting should be uniform, bright, and diffuse
+    * LED light panels are great
+    * fiber optical illuminators are alright
+* looking ahead to calibration, you want to make sure that your FOVs will have the calibration grid fill up as much of the FOV as possible without extending any of the calibration grid dots outside of the FOV; the calibration grid filling about 50% or more of the FOV is good
+* be sure to clamp, tie or tape down the camera cables
+* make a conscious effort to avoid touching the cameras and the cables at all!
+
+Calibration
+* see the calibration series from Phil Reu [doi: 10.1111/ext.12048]
+* if using a glass calibration grid, only indirectly backlight the grid
+    * no direct light, front or back
+    * use the white poster board instead of a piece of paper: matte finish is good
+    * set the light intensity to just before saturation to get good contrast
+* move the grid around in the field of view while taking pictures
+    * do some images at extreme rotations (so long at the three main dots are in focus)
+    * only rotations about the x and y axes matter
+    * don't put the keyboard on the same table as the cameras as hitting the spacebar shakes the cameras and messes up the calibration
+    * take 25-30 calibration images
+* once the calibration analysis is complete, you can remove poorly matched image pairs by right clicking the row to improve the score
+* calibration scores
+    * below 0.100 is okay, below 0.050 is good, below 0.030 is great
+    * the units on the calibration scores is residual pixels
+    * calibration scores get worse for more and more extension tubes
+
 
