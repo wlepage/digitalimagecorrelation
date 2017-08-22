@@ -77,6 +77,7 @@ In most cases, the sample's natural surface is not the best pattern that could b
 Painted speckle patterns are popular because paint is relatively compliant to most engineering materials, and high-quality speckle patterns can be applied quickly with spraying paint (e.g. spray cans or airbrushes). Since paint colors other than black and white will inherently have less contrast, black and white paints are recommended. Using white paint as the background and black as the speckles is favored over the converse order because black paint maintains better contrast over white paint (LePage, Shaw, Daly. [doi:10.1007/s40799-017-0192-3](https://doi.org/10.1007/s40799-017-0192-3)). If the sample will undergo large deformations and/or high strain rates, then plan to perform the experiment within 24 to 48 hours of painting. As the paint dries and hardens, it loses its ability to deform with the sample (Reu. [doi:10.1111/ext.12147](http://doi.org/10.1111/ext.12147)).
 
 #### Inks and dyes
+For hyperelastic materials (including many elastomers, polymers, and biomaterials), paint does not stretch enough to track with the sample as a speckle pattern. Inks and dyes that permeate the sample material can be viable speckle pattern options, 
 
 #### Powder particles
 #### Nanoparticles
