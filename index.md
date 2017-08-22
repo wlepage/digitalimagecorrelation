@@ -74,21 +74,30 @@ To match the reference and deformed images, DIC tracks features on the sample su
 In most cases, the sample's natural surface is not the best pattern that could be achieved. There are many ways to apply artificial speckle patterns, and the main techniques are listed below.
 
 #### Paint
-Painted speckle patterns are popular because paint is relatively compliant to most engineering materials, and high-quality speckle patterns can be applied quickly with spraying paint (e.g. spray cans or airbrushes). Since paint colors other than black and white will inherently have less contrast, black and white paints are recommended. Using white paint as the background and black as the speckles is favored over the converse order because black paint maintains better contrast over white paint (LePage, Shaw, Daly. [doi:10.1007/s40799-017-0192-3](https://doi.org/10.1007/s40799-017-0192-3)). If the sample will undergo large deformations and/or high strain rates, then plan to perform the experiment within 24 to 48 hours of painting. As the paint dries and hardens, it loses its ability to deform with the sample (Reu. [doi:10.1111/ext.12147](http://doi.org/10.1111/ext.12147)).
+Painted speckle patterns are popular because paint is relatively compliant to most engineering materials, and high-quality speckle patterns can be applied quickly with spraying paint. Since paint colors other than black and white will inherently have less contrast, black and white paints are recommended. Using white paint as the background and black as the speckles is favored over the converse order because black paint maintains better contrast over white paint (LePage, Shaw, Daly. [doi:10.1007/s40799-017-0192-3](https://doi.org/10.1007/s40799-017-0192-3)). 
+
+If the sample will undergo large deformations and/or high strain rates, then plan to perform the experiment within 24 to 48 hours of painting. As the paint dries and hardens, it loses its ability to deform with the sample (Reu. [doi:10.1111/ext.12147](http://doi.org/10.1111/ext.12147)). A range of speckle sizes can be produced with sprayed paint. Artist grade airbrushes, such as the Iwata CM-B, can produce speckle sizes between 10 and 100 microns by varying the airbrush pressure (more pressure creates smaller speckles). Cans of spray paint can produce larger speckles, in the range of 100 to 1000 microns.
 
 #### Inks and dyes
-For hyperelastic materials (including many elastomers, polymers, and biomaterials), paint does not stretch enough to track with the sample as a speckle pattern. Inks and dyes that permeate the sample material can be viable speckle pattern options, 
+For hyperelastic materials (including many elastomers, polymers, and biomaterials), paint is not stretchy enough to track with the sample as a speckle pattern. Inks and dyes that permeate the sample material can be viable speckle pattern options. Stamping, masking, spraying, and stenciling can be deployed to apply the ink or dye. Some DIC practitioners use permanent markers, as well. 
 
 #### Powder particles
-#### Nanoparticles
-#### Lithographed patterns: EBL or photolitho
+For moist or sticky materials, powder particles may adhere better than paint. Graphite powder is popular for dark speckles, and alumina or magnesium oxide can be used for a white basecoat. Another use for powder patterns is achieving smaller speckles than painted patterns can produce. Using a combination of filters and compressed air, powder particle patterns smaller than 10 microns can be deposited on a smooth/polished sample to form a speckle pattern (Jonnalagadda, et al. [doi:10.1007/s11340-008-9212-7](https://doi.org/10.1007/s11340-008-9212-7)).
 
+#### Nanoparticles
+For even smaller speckles than powders (about 20 to 100 nanometer speckle size, for scanning electron microscopy digital image correlation), self-assembled nanoparticles can be utilized (Kammers and Daly, [doi:10.1007/s11340-013-9734-5](https://doi.org/10.1007/s11340-013-9734-5)). 
+
+#### Lithographed patterns
+Lithography is another method for achieving small speckle size, with the benefit of  a higher degree of control than most other microscale patterning methods (Cannon, et al. [doi:10.1007/978-3-319-51439-0_34](https://doi.org/10.1007/978-3-319-51439-0_34)).
 
 ### Further reading
 1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [http://doi.org/10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
-1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Reu, Phillip. "All about speckles: speckle size measurement." Experimental Techniques 38.6 (2014): 1-2. [http://doi.org/10.1111/ext.12110](http://doi.org/10.1111/ext.12110)
 1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [http://doi.org/10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
+1. Kammers, A. D., and S. Daly. "Small-scale patterning methods for digital image correlation under scanning electron microscopy." Measurement Science and Technology 22.12 (2011): 125501. [https://doi.org/10.1088/0957-0233/22/12/125501](https://doi.org/10.1088/0957-0233/22/12/125501).
+
+***
+[WL: left off here]
 
 <a name="imaging"></a>
 # Image capturing
