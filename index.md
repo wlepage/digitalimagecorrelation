@@ -6,7 +6,7 @@ use_math: true
 
 Digital image correlation (DIC) is a surface displacement measurement technique that can capture the shape, motion, and deformation of solid objects. Rudimentary DIC results are easy to obtain, but reliable, high-quality DIC results can be difficult to achieve. The goal of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is to equip new DIC practitioners with the fundamentals and best practices of DIC so they can produce optimum measurements in a time-efficient manner. 
 
-The content of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is organized for DIC learners to gather the most important information by reading from start to finish, while more experienced users can jump ahead to a section of interest. The subject matter is intentionally simplified to be as accessible as possible to engineers of all skill levels, including undergraduates. Mathematical definitions and derivations are avoided, but should be reviewed by DIC practitioners once their basic skill level is established. At the conclusion of each section, suggestions are provided for more detailed resources.
+The content of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is organized for DIC learners to gather the most important information by reading from start to finish, while more experienced users can jump ahead to a section of interest. The subject matter is intentionally simplified to be accessible to engineers of all skill levels, including undergraduates. Mathematical definitions and derivations are avoided, but should be reviewed and understood by DIC practitioners once their basic skill level is established. At the conclusion of each section, suggestions are provided for more detailed resources.
 
 <a name="fundamentals"></a>
 # DIC fundamentals
@@ -20,15 +20,17 @@ The basic process of a DIC calculation is illustrated below.
 (e) Once the subset is matched, DIC calculates the subset center's relative displacement between the reference and deformed images. The displacement here is the (small) difference between the blue and red dots. The next example will show how this basic operation is extended to multiple subsets and DIC points. 
 <br /><br />![DIC subset]({{site.baseurl}}/assets/img/DICsubset-01.png)<br /><br />
 
-The previous example computed the displacements from one subset, but DIC can compute a _field_ of displacements by tracking multiple subsets. The same procedure as before is repeated, except this time with four equally-sized subsets in a two-by-two grid. This yields four more points with displacement information, for a total of five data points.
+The previous example computed the displacements from one subset, but DIC computes a _field_ of displacements by tracking multiple subsets. The same procedure as before is repeated, except this time with four equally-sized subsets in a two-by-two grid. This yields four more points with displacement information, for a total of five data points.
 <br /><br />![DIC subsets]({{site.baseurl}}/assets/img/DICsubsets-01.png)<br /><br />
 
-From the five subsets (one from the first example, and four more from the second example), there are five total points for which the displacements have been calculated. Each of these points can be referred to as a _DIC point_. Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square<sup>[b](#footnotes-fundamentals)</sup> in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels.
+From the five subsets (one from the first example, and four more from the second example), there are five total points for which the displacements have been calculated. Each of these points can be referred to as a _DIC point_. 
+
+Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square<sup>[b](#footnotes-fundamentals)</sup> in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels. Since DIC calculations are performed on images with inherent units of pixels, DIC algorithms are length-scale independent. The length scale of the displacements (e.g. millimeters) is introduced by the magnification of the images.
 
 The displacement at each DIC point is a vector, so the components of the vector can be decomposed. For two dimensions of displacement, the components can be written in a Cartesian coordinate system as the horizontal displacement (_u_) and vertical displacement (_v_). Three dimensions of displacements (_u_, _v_, and _w_) can also be measured with a more complicated type of DIC that uses triangulation -- more on this in the section on the [main types of DIC](#DICtypes).
 <br /><br />![DIC points]({{site.baseurl}}/assets/img/DICfivepoints-01.png)<br /><br />
 
-DIC is commonly utilized to study the mechanical properties of solids. One of the most common experiments for solid materials is a _uniaxial tension_ experiment, shown in the schematic below. The goal of this experiment is to quantify how much the material deforms when a force is applied. There are many different ways to measure the deformation of the material, including strain gauges, extensometers (mechanical, laser, or optical), and DIC. While strain gauges and extensometers provide a single measurement of strain or displacement in the material, DIC can provide many displacement measurements across the material. 
+DIC is commonly utilized to study the mechanical properties of solids. One of the most common experiments for solid materials is a _uniaxial tension_ experiment, shown in the schematic below. The goal of this experiment is to quantify how much the material deforms when a force is applied. There are many different ways to measure the deformation of the material, including strain gauges, extensometers (mechanical, laser, or optical), and DIC. While strain gauges and extensometers provide a single measurement of strain or displacement in the material, DIC can provide many displacement measurements across the material. With displacements across the material, DIC can capture the local deformations that arise from inhomogeneity, cracking, stress concentrations, plastic instabilities, phase transformations, and other localized material phenomena.
 <br /><br />![DIC basics]({{site.baseurl}}/assets/img/DICbasics-01.png)<br /><br />
 
 <a name="footnotes-fundamentals"></a>
@@ -43,9 +45,15 @@ b. The subsets in many local DIC codes are restricted to square shapes in the re
 
 <a name="DICtypes"></a>
 # General types of DIC algorithms
-There are multiple ways to categorize DIC algorithms. One is by the dimensions of the calculated displacements. For images collected by just one camera, only two dimensions of displacements can be known. This is called two-dimensional, or _2-D DIC_ (also commonly written as 2D-DIC). When images from more than one camera are used, depth can be measured with triangulation. This is called three-dimensional, or _3-D DIC_ (also commonly written as 3D-DIC). An important note is that 3-D DIC can only measure displacements on the surface of a material, not within the three-dimensional volume of a material. To measure displacements within a solid, the imaging system must be able to see inside the material, and the algorithms of DIC must be extended to capture displacements through the volume. This extension of DIC from _pixels_ to _voxels_ is called digital _volume_ correlation (DVC). Two examples of imaging systems that can see inside materials are X-ray tomography and confocal microscopy.
+One way to categorize DIC algorithms is by the dimensions of the calculated displacements. For images collected by just one camera, only two dimensions of displacements can be known. This is called two-dimensional, or _2-D DIC_ (also commonly written as 2D-DIC). When images from more than one camera are used, depth can be measured with triangulation. This is called three-dimensional, or _3-D DIC_ (also commonly written as 3D-DIC). 
 
-A second way to categorize DIC algorithms is by the pattern matching technique. The pattern can be separated into multiple subsets that are individually matched. This is called _local DIC_. Alternatively, the pattern can be matched in one go using a finite-element based approach. This is called _global DIC_. 
+2-D DIC assumes that the sample's deformations are constrained to a plane that is parallel to the camera. In practice, out-of-plane motion can be a large source of error for 2-D DIC (Sutton, et al. [doi:10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)). Also, images can have distortions that introduce error into DIC measurements. For example, camera lenses and optical microscopes generally have barrel distortions. 
+
+For 3-D DIC, out of plane deformations are measured with triangulation. As long as the sample remains in focus, then the out-of-plane deformations do not introduce error in 3-D DIC (unlike 2-D DIC). Furthermore, imaging distortions are corrected in 3-D DIC through a calibration procedure. See the [calibration](#calibration)) section or more details about calibrating 3-D DIC systems. Another benefit of the 3-D DIC calibration process is that the length scale of the images are accurately connected to the physical length scale of the imaging system. In contrast, the length scale of 2-D DIC is introduced by a simple and less accurate conversion between the pixel size of the images to the physical size of the images (e.g. millimeters). 
+
+An important note is that 3-D DIC can only measure displacements on the surface of a material, not within the three-dimensional volume of a material. This extension of DIC from pixels to _voxels_ (three-dimensional pixels) is called digital _volume_ correlation (DVC). To measure displacements within a solid, the imaging system must be able to see inside the material, and the algorithms of DIC must be extended to capture displacements through the volume. Two examples of imaging systems that can see inside materials are X-ray tomography and confocal microscopy.
+
+A second way to categorize DIC algorithms is by the pattern matching technique. The pattern can be separated into multiple subsets that are individually matched. This is called _local DIC_. Alternatively, the pattern can be matched in one go using a finite-element based approach. This is called _global DIC_. Local DIC was introduced before global DIC, and local DIC is more popular. Many of the principles in this guide apply to both local and global DIC, but details that only apply to local DIC (such as subsets) are included.
 
 ### Further reading
 1. (2-D and 3-D DIC) Sutton, M. A., et al. "The effect of out-of-plane motion on 2D and 3D digital image correlation measurements." Optics and Lasers in Engineering 46.10 (2008): 746-757. [https://doi.org/10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)
@@ -55,14 +63,26 @@ A second way to categorize DIC algorithms is by the pattern matching technique. 
 <a name="patterning"></a>
 # Speckle patterning
 
-To match the reference and deformed images, DIC tracks features on the sample surface that collectively form the _speckle pattern_. Occasionally, a sample's surface will inherently have features suffice for a _natural_ speckle pattern, but typically an _artificial_ speckle pattern must be applied to the sample. The quality of DIC results are strongly dependent on the speckle pattern, and optimum speckle patterns meet the following conditions.
-1. The pattern covers the sample surface and moves/deforms with the sample, but does not exert a significant mechanical stress on the sample. In other words, the pattern is fully adhered to the sample, but deforms extremely easily compared to the sample. 
-2. The features that comprise the pattern (the _speckles_) are random in position but uniform in size. The speckle size is at least 3 pixels to avoid aliasing<sup>[1-3](#references-speckles)</sup>, but not much more than 7 pixels to achieve a relatively high density of DIC points<sup>[4](#references-speckles)</sup>. If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. 
-3. Good contrast<sup>[5](#references-speckles), histogram looks like a bimodal distribution</sup>
-4. Density of about 50% (under patterned = speckles too big and too small, Reu; it's important to note that these are not average speckle sizes, these are the dimensions of the smallest and the largest speckles [Reu 2015, doi:10.1111/ext.12110],
+To match the reference and deformed images, DIC tracks features on the sample surface that collectively form the _speckle pattern_. Occasionally, a sample's surface will inherently have features that suffice for a _natural_ speckle pattern, but typically an _artificial_ speckle pattern must be applied to the sample. The quality of DIC results are strongly dependent on the speckle pattern, and optimum speckle patterns meet the following conditions.
+1. The pattern covers the sample surface in the area of interest. 
+1. The pattern moves and deforms with the sample, but does not exert a significant mechanical stress on the sample. In other words, the pattern is fully adhered to the sample, but deforms extremely easily compared to the sample. 
+1. The features that comprise the pattern (the _speckles_) are random in position but uniform in size. 
+1. The speckle size is at least 3 pixels to avoid aliasing (Bruck, et al. [doi:10.1007/BF02321405](https://doi.org/10.1007/BF02321405)), but not much more than 7 pixels to achieve a relatively high density of DIC points (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. Also, note that these speckle sizes are not averages, but are rather the range of the smallest and largest speckles (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). Here is an example of a calculation to estimate the desired speckle size range: 
+```
+12 mm / 2048 px * (3 to 7 px per speckle) = 18 to 41 microns per speckle
+```
+1. The pattern has good grayscale contrast, which reduces error (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). One way to visualize this contrast is a histogram: with the number of pixels plotted with respect to grayscale level, the pattern has a mix of dark and bright pixels, indicated by two peaks in the histogram's spectrum, and the separation between the two peaks is broad. Ideally, the two peaks look like a bimodal Gaussian distribution. 
+1. The pattern has a speckle density of about 50%. When the pattern has either too few or too many speckles, then this results in features that are both too big and too small (Reu. [doi:10.1111/ext.12110](doi:http://doi.org/10.1111/ext.12110)).
 )
-5. Stability in in the testing environment (e.g. high temp)
+1. The pattern is stable in the testing environment. For example, for a high-temperature experiment, the pattern does not decay or darken under heating.
 
+### Speckle patterning methods
+In most cases, the sample's natural surface is not the best pattern that could be achieved. There are many ways to apply artificial speckle patterns, and the main techniques are listed below.
++ __Paint__: 
++ __Inks and dyes__:
++ __Powder particles__:
++ __Nanoparticles__:
++ __Lithographed patterns__: EBL or photolitho
 
 Methods: paint, inks and dyes, powder particles, nanoparticles
 in the case of painted patterns, using white paint as the background and black as the speckles is superior because the black-on-white maintains higher contrast in the black speckles than white-on-black because black paint has much higher hiding power than white paint (see our article on this and micrograph below)
@@ -70,14 +90,11 @@ https://link.springer.com/article/10.1007/s40799-017-0192-3
 * if your experiments have large deformations and/or strain rates, plan to run the experiment within 24-48 hours of painting; the paint will harden and lose its ability to deform with the sample Reu 2015, doi: 10.1111/ext.12147
 Multiscale (paper that you reviewed), Kammers
 
-compute the speckle size bounds by dividing the FOV width in millimeters by the FOV width in pixels times 3 and 7:
-\begin{align\*}
-12 \text{mm} / 2048 \text{px} * \left(3 \text{to} 7 \text{px per speckle}\right) = 18 \text{to} 41 \text{microns per speckle} 
-\end{align\*}
+
 
 <a name="references-speckles"></a> 
 ### References
-1. Bruck, H. A., et al. "Digital image correlation using Newton-Raphson method of partial differential correction." Experimental mechanics 29.3 (1989): 261-267. [https://doi.org/10.1007/BF02321405](https://doi.org/10.1007/BF02321405)
+1. 
 1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [http://doi.org/10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Reu, Phillip. "All about speckles: speckle size measurement." Experimental Techniques 38.6 (2014): 1-2. [http://doi.org/10.1111/ext.12110](http://doi.org/10.1111/ext.12110)
@@ -134,7 +151,9 @@ Camera setup
 * be sure to clamp, tie or tape down the camera cables
 * make a conscious effort to avoid touching the cameras and the cables at all!
 
-Calibration
+<a name="calibration"></a>
+# 3-D DIC calibration
+
 * see the calibration series from Phil Reu [doi: 10.1111/ext.12048]
 * if using a glass calibration grid, only indirectly backlight the grid
     * no direct light, front or back
