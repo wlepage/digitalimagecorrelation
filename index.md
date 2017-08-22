@@ -4,7 +4,7 @@ published: true
 use_math: true
 ---
 
-Digital image correlation \(DIC\) is a surface displacement measurement technique that can capture the shape, motion, and deformation of solid objects. Rudimentary DIC results are easy to obtain, but reliable, high-quality DIC results can be difficult to achieve. The goal of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is to equip new DIC practitioners with the fundamentals and best practices of DIC so they can produce optimum measurements in a time-efficient manner. 
+Digital image correlation (DIC) is a surface displacement measurement technique that can capture the shape, motion, and deformation of solid objects. Rudimentary DIC results are easy to obtain, but reliable, high-quality DIC results can be difficult to achieve. The goal of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is to equip new DIC practitioners with the fundamentals and best practices of DIC so they can produce optimum measurements in a time-efficient manner. 
 
 The content of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is organized for DIC learners to gather the most important information by reading from start to finish, while more experienced users can jump ahead to a section of interest. The subject matter is intentionally simplified to be as accessible as possible to engineers of all skill levels, including undergraduates. Mathematical definitions and derivations are avoided, but should be reviewed by DIC practitioners once their basic skill level is established. At the conclusion of each section, suggestions are provided for more detailed resources.
 
@@ -57,7 +57,7 @@ A second way to categorize DIC algorithms is by the pattern matching technique. 
 
 To match the reference and deformed images, DIC tracks features on the sample surface that collectively form the _speckle pattern_. Occasionally, a sample's surface will inherently have features suffice for a _natural_ speckle pattern, but typically an _artificial_ speckle pattern must be applied to the sample. 
 
-Let's test some inline math $x$, $y$, $x_1$, $y_1$.
+Let's test some inline math $$x$$, $$y$$, $$x_1$$, $$y_1$$.
 
 And test a display math without equaltion number:
 \begin{align\*}
