@@ -64,7 +64,8 @@ To match the reference and deformed images, DIC tracks features on the sample su
 1. The features that comprise the pattern (the _speckles_) are random in position but uniform in size. 
 1. The speckle size is at least 3 pixels to avoid aliasing (Bruck, et al. [doi:10.1007/BF02321405](https://doi.org/10.1007/BF02321405)), but not much more than 7 pixels to achieve a relatively high density of DIC points (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. Also, note that these speckle sizes are not averages, but are rather the range of the smallest and largest speckles (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). Here is an example of a calculation to estimate the desired speckle size range: 
 ```
-12 mm / 2048 px * (3 to 7 px per speckle) = 18 to 41 microns per speckle
+12 mm / 2048 px * (3 to 7 px per speckle) 
+ = 18 to 41 microns per speckle
 ```
 1. The pattern has good grayscale contrast, which reduces error (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). One way to visualize this contrast is a histogram: with the number of pixels plotted with respect to grayscale level, the pattern has a mix of dark and bright pixels, indicated by two peaks in the histogram's spectrum, and the separation between the two peaks is broad. Ideally, the two peaks look like a bimodal Gaussian distribution. 
 1. The pattern has a speckle density of about 50%. When the pattern has either too few or too many speckles, then this results in features that are both too big and too small (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)).
@@ -94,11 +95,10 @@ Lithography is another method for achieving small speckle size, with the benefit
 1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [http://doi.org/10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
 1. Reu, Phillip. "All about speckles: speckle size measurement." Experimental Techniques 38.6 (2014): 1-2. [http://doi.org/10.1111/ext.12110](http://doi.org/10.1111/ext.12110)
 1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [http://doi.org/10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
+1. Dong, Y. L., and B. Pan. "A Review of Speckle Pattern Fabrication and Assessment for Digital Image Correlation." Experimental Mechanics (2017): 1-21. [https://doi.org/10.1007/s11340-017-0283-1](https://doi.org/10.1007/s11340-017-0283-1).
 1. Kammers, A. D., and S. Daly. "Small-scale patterning methods for digital image correlation under scanning electron microscopy." Measurement Science and Technology 22.12 (2011): 125501. [https://doi.org/10.1088/0957-0233/22/12/125501](https://doi.org/10.1088/0957-0233/22/12/125501).
 
-***
-[WL: left off here]
-
+<!-- 
 <a name="imaging"></a>
 # Image capturing
 
@@ -142,7 +142,7 @@ Camera setup
 * see the "stereo-rig design" series from Phil Reu for lots of great info, starting with Part 1 of 4, Creating the Stereo-Rig Layout [Reu 2012, doi: 10.1111/j.1747-1567.2012.00871.x]
 * good focus is critical
     * make sure that the most important region in your area of interest is the best-focused area
-    * do not follow the directives of the Vic3D manual for focusing, which say to focus at the largest aperture setting (smallest number), and then close the aperture to the desired opening -- this is not a good idea because the depth of focus in the sample does not scale equally both towards and away from the camera whenever the aperture is closed (J. Wayne Jones in MSE, an avid photographer, confirmed that this is not how lenses behave, and one of Shaw's summer students Arnaud measured this)
+    * do not follow the directives of the Vic3D manual for focusing, which say to focus at the largest aperture setting (smallest number), and then close the aperture to the desired opening - this is not a good idea because the depth of focus in the sample does not scale equally both towards and away from the camera whenever the aperture is closed (J. Wayne Jones in MSE, an avid photographer, confirmed that this is not how lenses behave, and one of Shaw's summer students Arnaud measured this)
 * lighting should be uniform, bright, and diffuse
     * LED light panels are great
     * fiber optical illuminators are alright
@@ -170,3 +170,4 @@ Camera setup
     * calibration scores get worse for more and more extension tubes
 
 
+ -->
