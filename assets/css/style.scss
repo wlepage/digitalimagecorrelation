@@ -4,7 +4,7 @@
 @import "{{ site.theme }}";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i');
 body {
-  font: 14px/1.5 "Open Sans", Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: 14px/1.5 "Open Sans", Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
 h1 {
