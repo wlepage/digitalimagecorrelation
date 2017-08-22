@@ -14,7 +14,7 @@ The basic operation of DIC is tracking a pattern (often called a [_speckle patte
 
 The basic process of a DIC calculation is illustrated below.
 (a) The reference image has a recognizable pattern of dots that will be tracked.
-(b) A portion of the pattern, called a _subset_, is selected for tracking.<sup>[a](#footnotes-fundamentals)</sup>
+(b) A portion of the pattern, called a _subset_, is selected for tracking.
 (c) The center of the subset (the red dot, which is _not_ part of the speckle pattern) is the place in the reference image from which the displacement will be calculated.
 (d) After the material is deformed from the reference image's initial position, the subset in the deformed image is matched to the subset from the reference image. 
 (e) Once the subset is matched, DIC calculates the subset center's relative displacement between the reference and deformed images. The displacement here is the (small) difference between the blue and red dots. The next example will show how this basic operation is extended to multiple subsets and DIC points. 
@@ -25,18 +25,13 @@ The previous example computed the displacements from one subset, but DIC compute
 
 From the five subsets (one from the first example, and four more from the second example), there are five total points for which the displacements have been calculated. Each of these points can be referred to as a _DIC point_. 
 
-Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square<sup>[b](#footnotes-fundamentals)</sup> in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels. Since DIC calculations are performed on images with inherent units of pixels, DIC algorithms are length-scale independent. The length scale of the displacements (e.g. millimeters) is introduced by the magnification of the images.
+Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels. Since DIC calculations are performed on images with inherent units of pixels, DIC algorithms are length-scale independent. The length scale of the displacements (e.g. millimeters) is introduced by the magnification of the images.
 
 The displacement at each DIC point is a vector, so the components of the vector can be decomposed. For two dimensions of displacement, the components can be written in a Cartesian coordinate system as the horizontal displacement (_u_) and vertical displacement (_v_). Three dimensions of displacements (_u_, _v_, and _w_) can also be measured with a more complicated type of DIC that uses triangulation -- more on this in the section on the [main types of DIC](#DICtypes).
 <br /><br />![DIC points]({{site.baseurl}}/assets/img/DICfivepoints-01.png)<br /><br />
 
 DIC is commonly utilized to study the mechanical properties of solids. One of the most common experiments for solid materials is a _uniaxial tension_ experiment, shown in the schematic below. The goal of this experiment is to quantify how much the material deforms when a force is applied. There are many different ways to measure the deformation of the material, including strain gauges, extensometers (mechanical, laser, or optical), and DIC. While strain gauges and extensometers provide a single measurement of strain or displacement in the material, DIC can provide many displacement measurements across the material. With displacements across the material, DIC can capture the local deformations that arise from inhomogeneity, cracking, stress concentrations, plastic instabilities, phase transformations, and other localized material phenomena.
 <br /><br />![DIC basics]({{site.baseurl}}/assets/img/DICbasics-01.png)<br /><br />
-
-<a name="footnotes-fundamentals"></a>
-### Footnotes
-a. The most DIC codes perform _local DIC_, which matches subsets of the pattern as described here. However, there are also _global DIC_ algorithms that match the entire pattern in one go. See more details on this in the section on [DIC types](#DICtypes).
-b. The subsets in many local DIC codes are restricted to square shapes in the reference configuration, but some DIC codes permit non-square subsets (see [DIC codes](#DICcodes)).
 
 ### Further reading
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
@@ -72,57 +67,51 @@ To match the reference and deformed images, DIC tracks features on the sample su
 12 mm / 2048 px * (3 to 7 px per speckle) = 18 to 41 microns per speckle
 ```
 1. The pattern has good grayscale contrast, which reduces error (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). One way to visualize this contrast is a histogram: with the number of pixels plotted with respect to grayscale level, the pattern has a mix of dark and bright pixels, indicated by two peaks in the histogram's spectrum, and the separation between the two peaks is broad. Ideally, the two peaks look like a bimodal Gaussian distribution. 
-1. The pattern has a speckle density of about 50%. When the pattern has either too few or too many speckles, then this results in features that are both too big and too small (Reu. [doi:10.1111/ext.12110](doi:http://doi.org/10.1111/ext.12110)).
-)
+1. The pattern has a speckle density of about 50%. When the pattern has either too few or too many speckles, then this results in features that are both too big and too small (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)).
 1. The pattern is stable in the testing environment. For example, for a high-temperature experiment, the pattern does not decay or darken under heating.
 
 ### Speckle patterning methods
 In most cases, the sample's natural surface is not the best pattern that could be achieved. There are many ways to apply artificial speckle patterns, and the main techniques are listed below.
-+ __Paint__: 
-+ __Inks and dyes__:
-+ __Powder particles__:
-+ __Nanoparticles__:
-+ __Lithographed patterns__: EBL or photolitho
 
-Methods: paint, inks and dyes, powder particles, nanoparticles
-in the case of painted patterns, using white paint as the background and black as the speckles is superior because the black-on-white maintains higher contrast in the black speckles than white-on-black because black paint has much higher hiding power than white paint (see our article on this and micrograph below)
-https://link.springer.com/article/10.1007/s40799-017-0192-3
-* if your experiments have large deformations and/or strain rates, plan to run the experiment within 24-48 hours of painting; the paint will harden and lose its ability to deform with the sample Reu 2015, doi: 10.1111/ext.12147
-Multiscale (paper that you reviewed), Kammers
+#### Paint
+Painted speckle patterns are popular because paint is relatively compliant to most engineering materials, and high-quality speckle patterns can be applied quickly with spraying paint (e.g. spray cans or airbrushes). Since paint colors other than black and white will inherently have less contrast, black and white paints are recommended. Using white paint as the background and black as the speckles is favored over the converse order because black paint maintains better contrast over white paint (LePage, Shaw, Daly. [doi:10.1007/s40799-017-0192-3](https://doi.org/10.1007/s40799-017-0192-3)). If the sample will undergo large deformations and/or high strain rates, then plan to perform the experiment within 24 to 48 hours of painting. As the paint dries and hardens, it loses its ability to deform with the sample (Reu. [doi:10.1111/ext.12147](http://doi.org/10.1111/ext.12147)).
+
+#### Inks and dyes
+
+#### Powder particles
+#### Nanoparticles
+#### Lithographed patterns: EBL or photolitho
 
 
-
-<a name="references-speckles"></a> 
-### References
-1. 
+### Further reading
 1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [http://doi.org/10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Reu, Phillip. "All about speckles: speckle size measurement." Experimental Techniques 38.6 (2014): 1-2. [http://doi.org/10.1111/ext.12110](http://doi.org/10.1111/ext.12110)
 1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [http://doi.org/10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
 
-### Further reading
-
-
 <a name="imaging"></a>
 # Image capturing
 
-<a name="DICcodes"></a>
-# Comparison of DIC codes
-
-
-+ Subset size selection, spline interpolation, and saturated pixels (at least 3 specks/subset = Big Red; bigger subsets = better pattern matching with reference image, but smooths out the DIC data (lower spatial resolution) and also increases computation time.) 
 + Image capturing: cameras, microscopes, and more
 + Setup photos, cross polarization
 + Common cameras, lenses, and lights
 
-5.	Speckle patterning
-	a.	
-	b.	
-	c.	
+<a name="subsetssplines"></a>
+# Subsets, splines, and sub-pixel interpolation
 
-8.	Blurring (how fast to capture images?)
-9.	Noise floor (how small can you go?)
-10.	Common codes (open source and commercial, link to DIC Challenge)
++ Subset size selection, spline interpolation, and saturated pixels (at least 3 specks/subset = Big Red; bigger subsets = better pattern matching with reference image, but smooths out the DIC data (lower spatial resolution) and also increases computation time.) 
+
+<a name="spatialtemporallimits"></a>
+# Spatial and temporal resolution limits
+Blurring (how fast to capture images?)
+Noise floor (how small can you go?)
+
+
+<a name="DICcodes"></a>
+# Comparison of DIC codes
+
+Common codes (open source and commercial, link to DIC Challenge)
+
 
 Camera setup
 * first check and clean the cameras, lenses, and filters (UV or polarized)
