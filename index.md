@@ -92,12 +92,10 @@ For even smaller speckles than powders (about 20 to 100 nanometer speckle size, 
 Lithography is another method for achieving small speckle size, with the benefit of  a higher degree of control than most other microscale patterning methods (Cannon, et al. [doi:10.1007/978-3-319-51439-0_34](https://doi.org/10.1007/978-3-319-51439-0_34)).
 
 ### Further reading
-1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [doi:10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
-1. Reu, Phillip. "All about speckles: speckle size measurement." Experimental Techniques 38.6 (2014): 1-2. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)
-1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
 1. Dong, Y. L., and B. Pan. "A Review of Speckle Pattern Fabrication and Assessment for Digital Image Correlation." Experimental Mechanics (2017): 1-21. [https://doi.org/10.1007/s11340-017-0283-1](https://doi.org/10.1007/s11340-017-0283-1).
 1. Kammers, A. D., and S. Daly. "Small-scale patterning methods for digital image correlation under scanning electron microscopy." Measurement Science and Technology 22.12 (2011): 125501. [https://doi.org/10.1088/0957-0233/22/12/125501](https://doi.org/10.1088/0957-0233/22/12/125501).
-
+1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [doi:10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
+1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
 
 <a name="imaging"></a>
 # Image capturing
