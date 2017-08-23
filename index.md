@@ -48,6 +48,9 @@ For 3-D DIC, out of plane deformations are measured with triangulation. As long 
 
 An important note is that 3-D DIC can only measure displacements on the surface of a material, not within the three-dimensional volume of a material. This extension of DIC from pixels to _voxels_ (three-dimensional pixels) is called digital _volume_ correlation (DVC). To measure displacements within a solid, the imaging system must be able to see inside the material, and the algorithms of DIC must be extended to capture displacements through the volume. Two examples of imaging systems that can see inside materials are X-ray tomography and confocal microscopy.
 
+A comparison among 2-D DIC, 3-D DIC, and DVC is illustrated below.
+<br /><br />![DIC points]({{site.baseurl}}/assets/img/DICtypes-01.png)<br /><br />
+
 A second way to categorize DIC algorithms is by the pattern matching technique. The pattern can be separated into multiple subsets that are individually matched. This is called _local DIC_. Alternatively, the pattern can be matched in one go using a finite-element based approach. This is called _global DIC_. Local DIC was introduced before global DIC, and local DIC is more popular. Many of the principles in this guide apply to both local and global DIC, but details that only apply to local DIC (such as subsets) are included.
 
 ### Further reading
