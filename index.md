@@ -143,7 +143,7 @@ Building a successful DIC setup requires making the right equipment choices. For
 <a name="calibration"></a>
 # Calibration
 
-For 2-D DIC, the only calibration is a length scale conversion from the pixel space of DIC to the image's magnification, so a line of known length suffices for the calibration. For 3-D DIC, the cameras must be calibrated with respect to one another in space, so a line is no longer sufficient. Thus, common calibration procedures involve a calibration grid, or a plane of known dimensions. This concept is illustrated below. 
+For 2-D DIC, the only calibration is a length scale conversion from the pixel space of DIC to the image's magnification, so the calibration needs a line of known length (such as the horizontal field width, or HFW). For 3-D DIC, the cameras must be calibrated with respect to one another in space, so a line is no longer sufficient. Thus, common calibration procedures involve a calibration grid, or a plane of known dimensions. This concept is illustrated below. 
 
 <br /><br />![DIC calibrations]({{site.baseurl}}/assets/img/calibrations-01.png)<br /><br />
 
