@@ -33,7 +33,7 @@ The displacement at each DIC point is a vector, so the components of the vector 
 DIC is commonly utilized to study the mechanical properties of solids. One of the most common experiments for solid materials is a _uniaxial tension_ experiment, shown in the schematic below. The goal of this experiment is to quantify how much the material deforms when a force is applied. There are many different ways to measure the deformation of the material, including strain gauges, extensometers (mechanical, laser, or optical), and DIC. While strain gauges and extensometers provide a single measurement of strain or displacement in the material, DIC can provide many displacement measurements across the material. With displacements across the material, DIC can capture the local deformations that arise from inhomogeneity, cracking, stress concentrations, plastic instabilities, phase transformations, and other localized material phenomena.
 <br /><br />![DIC basics]({{site.baseurl}}/assets/img/DICbasics-01.png)<br /><br />
 
-### Further reading
+#### Further reading
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [doi:10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
@@ -53,7 +53,7 @@ A comparison among 2-D DIC, 3-D DIC, and DVC is illustrated below.
 
 A second way to categorize DIC algorithms is by the pattern matching technique. The pattern can be separated into multiple subsets that are individually matched. This is called _local DIC_. Alternatively, the pattern can be matched in one go using a finite-element based approach. This is called _global DIC_. Local DIC was introduced before global DIC, and local DIC is more popular. Many of the principles in this guide apply to both local and global DIC, but details that only apply to local DIC (such as subsets) are included.
 
-### Further reading
+#### Further reading
 1. (2-D and 3-D DIC) Sutton, M. A., et al. "The effect of out-of-plane motion on 2D and 3D digital image correlation measurements." Optics and Lasers in Engineering 46.10 (2008): 746-757. [doi:10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)
 1. (digital volume correlation, DVC) Franck, C., et al. "Three-dimensional full-field measurements of large deformations in soft materials using confocal microscopy and digital volume correlation." Experimental Mechanics 47.3 (2007): 427-438. [doi:10.1007/s11340-007-9037-9](https://doi.org/10.1007/s11340-007-9037-9)
 1. (local and global DIC) François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012. 
@@ -65,7 +65,7 @@ To match the reference and deformed images, DIC tracks features on the sample su
 1. The pattern covers the sample surface in the area of interest. 
 1. The pattern moves and deforms with the sample, but does not exert a significant mechanical stress on the sample. In other words, the pattern is fully adhered to the sample, but deforms extremely easily compared to the sample. 
 1. The features that comprise the pattern (the _speckles_) are random in position but uniform in size. 
-1. The speckle size is at least 3 pixels to avoid aliasing (Bruck, et al. [doi:10.1007/BF02321405](https://doi.org/10.1007/BF02321405)), but not much more than 7 pixels to achieve a relatively high density of DIC points (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. Also, note that these speckle sizes are not averages, but are rather the range of the smallest and largest speckles (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). Here is an example of a calculation to estimate the desired speckle size range: 
+1. The speckle size is at least 3 pixels to avoid aliasing (Reu. [doi:10.1111/ext.12111](http://doi.org/10.1111/ext.12111)), but not much more than 7 pixels to achieve a relatively high density of DIC points (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. Also, note that these speckle sizes are not averages, but are rather the range of the smallest and largest speckles (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). Here is an example of a calculation to estimate the desired speckle size range: 
 ```
 12 mm / 2048 px * (3 to 7 px per speckle) 
  = 18 to 41 microns per speckle
@@ -96,7 +96,7 @@ For even smaller speckles than powders (about 20 to 100 nanometer speckle size, 
 #### Lithographed patterns
 Lithography is another method for achieving small speckle size, with the benefit of  a higher degree of control than most other microscale patterning methods (Cannon, et al. [doi:10.1007/978-3-319-51439-0_34](https://doi.org/10.1007/978-3-319-51439-0_34)).
 
-### Further reading
+#### Further reading
 1. Dong, Y. L., and B. Pan. "A Review of Speckle Pattern Fabrication and Assessment for Digital Image Correlation." Experimental Mechanics (2017): 1-21. [doi:10.1007/s11340-017-0283-1](https://doi.org/10.1007/s11340-017-0283-1).
 1. Kammers, A. D., and S. Daly. "Small-scale patterning methods for digital image correlation under scanning electron microscopy." Measurement Science and Technology 22.12 (2011): 125501. [doi:10.1088/0957-0233/22/12/125501](https://doi.org/10.1088/0957-0233/22/12/125501).
 1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [doi:10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
@@ -105,21 +105,68 @@ Lithography is another method for achieving small speckle size, with the benefit
 <a name="imaging"></a>
 # Image capturing
 
-The key step of data collection for DIC is capturing images. Most commonly, cameras are used to capture DIC images, but higher magnification imaging systems can be used. The length scale of the DIC calculation depends on the physical scale of the images. DIC has been performed on the length scale of meters to track the collapse of Mount St. Helens (Walter. [doi:10.1130/G32198.1](http://doi.org/10.1130/G32198.1)), all the way down to single atoms with transmission electron microscopy (Wang, et al. [doi:10.1115/1.4031332](https://doi.org/10.1115/1.4031332)). 
+The key step of data collection for DIC is capturing images. In general, good photography or microscopy practices translate to good DIC images, but there are extra considerations for optimizing DIC results. 
 
-+ Image capturing: cameras, microscopes, and more
-+ Setup photos, cross polarization
-+ Common cameras, lenses, and lights
+The first consideration is selecting the appropriate image magnification. The image magnification depends on the length scale of the samples and phenomena that the experiments will investigate. The algorithms for DIC are inherently length scale independent, so the physical length scale conversion arises from the image magnification. For example, DIC has been performed on the length scale of meters to track the collapse of Mount St. Helens (Walter. [doi:10.1130/G32198.1](http://doi.org/10.1130/G32198.1)), all the way down to single atoms with transmission electron microscopy (Wang, et al. [doi:10.1115/1.4031332](https://doi.org/10.1115/1.4031332)). Most commonly, though, cameras are used to capture DIC images.
+
+Building a successful DIC setup requires making the right equipment choices. For optical DIC systems with cameras, lenses, and lights, there are a few selection criteria that optimize the system. 
+
+#### Tips on cameras, lenses, and lights
++ For DIC images, color is superfluous and can be problematic. The best practice is to select black-and-white cameras. Often, cameras that are marketed for machine vision applications are very suitable for DIC, as well.
++ The camera sensor should have low noise, high quantum efficiency, and high dynamic range. Historically, charge-coupled device (CCD) sensors have outperformed complementary metal–oxide–semiconductor (CMOS) sensors, but new advancements in sensor technologies have leveled the playing field between CCD sensors and the next-generation of CMOS sensors (e.g. Sony Pregius). 
++ Lenses should have low distortion. The best lenses for DIC are _telecentric_, which means that the sample's magnification does not vary within the lenses depth or field of view. 
++ For lenses with adjustable apertures, use the mid-range apertures, say f/5.6, f/8, or f/11 for an f/1.8 to f/22 lens (the more extreme apertures introduce more distortions in the imaging).
++ The lenses and cameras should be rigidly mounted on an optics table (ideally) or on a high-quality tripod, and sources of vibration should be minimized. Be sure to clamp, tie, or tape down the camera cables, too.
++ Good focus is critical. Make sure that the most important region in your area of interest is the best-focused area. 
++ Lighting should be evenly distributed along the sample's area of interest. The lighting should be intense enough to achieve sufficient exposure for the images, yet not too intense to introduce saturated pixels. A saturate pixel is the maximum value of the sensor (such as 255 for an 8-bit sensor, 255 = 2^8-1). When a pixel saturates, DIC can no longer perform sub-pixel interpolation at that pixel. 
++ The lighting should also avoid introducing too much heat. Halogen lamps are very bright but also very hot, while LEDs are cooler (but high-intensity LEDs can still generate a significant amount of heat). 
++ For maximizing optical DIC results, polarizing filters can be placed orthogonally on the lights and lenses (a photography trick called cross polarization). For DIC, cross polarization increases contrast, decreases error, and attenuates saturated pixels that prevent sub-pixel correlation (LePage, Daly, Shaw. [doi:10.1007/s11340-016-0129-2](https://doi.org/10.1007/s11340-016-0129-2)).
++ Lastly, using a fan to gently blow air over the DIC setup is pragmatic because the turbulent flow prevents heat waves from distorting the images (Reu, et al. "Distortion of full-field surface displacements from heat waves").
+
+#### Best practices for cleaning cameras
+
+1. The lenses and cameras must be cleaned to remove dust. Two easy ways to check for dust on DIC gear: 
+	+ Shine a flashlight on the lens or sensor cover and move the flashlight around at different angles. Any specks of dust will be more visible.
+	+ Point the camera at a uniform, diffuse, bright light (e.g. light panel with a diffuser) and increase the exposure just until the image is mostly saturated, then moving the camera and seeing and darker spots in the view that don’t move while you’re moving the camera.
+1. Be especially careful while cleaning cameras, lenses, and sensors (only clean sensors with protective covers or panels), because improperly cleaning the gear can introduce permanent scratches. For a primer on cleaning photography gear, [B&H photo has a great guide](http://www.bhphotovideo.com/explora/photography/tips-and-solutions/how-clean-your-lens-and-filters). 
+1. To remove dust, do not blow air at the lenses from an air can or from your mouth, which can introduce moisture on the lens that leaves a residue. Use a photography type duster instead. 
+1. If the duster doesn’t get everything, then escalate to lens cleaning tissues. Only use new, clean lens cleaning tissues that have been moistened with lens cleaning solution.
 
 
-### Further reading
+#### Further reading
 1. Reu, Phillip. "Stereo‐Rig Design: Creating the Stereo‐Rig Layout--Part 1." Experimental Techniques 36.5 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00871.x](http://doi.org/10.1111/j.1747-1567.2012.00871.x).
 1. Reu, Phillip. "Stereo‐rig Design: Camera Selection---Part 2." Experimental Techniques 36.6 (2012): 3-4 []().
 1. Reu, Phillip. "Stereo‐rig Design: Lens Selection--Part 3." Experimental Techniques 37.1 (2013): 1-3. [doi:10.1111/ext.12000](http://doi.org/10.1111/ext.12000).
 1. Reu, Phillip. "Stereo‐rig Design: Lighting---Part 5." Experimental Techniques 37.3 (2013): 1-2. [doi:10.1111/ext.12020](http://doi.org/10.1111/ext.12020)
 
 
+<a name="calibration"></a>
+# Calibration
+
+For 2-D DIC, the only calibration is a length scale conversion from the pixel space of DIC to the image's magnification, so a line of known length suffices for the calibration. For 3-D DIC, the cameras must be calibrated with respect to one another in space, so a line is no longer sufficient. Thus, common calibration procedures involve a calibration grid, or a plane of known dimensions. This concept is illustrated below. 
+
+<br /><br />![DIC calibrations]({{site.baseurl}}/assets/img/calibrations-01.png)<br /><br />
+
+* see the stereo calibration series from Phil Reu [doi: 10.1111/ext.12048]
+* to hold the grid, use a dial indicator arm with magnetic base
+* if using a glass calibration grid, only indirectly backlight the grid
+    * no direct light, front or back
+    * use the white poster board instead of a piece of paper: matte finish is good
+    * set the light intensity to just before saturation to get good contrast
+* move the grid around in the field of view while taking pictures
+    * do some images at extreme rotations (so long at the three main dots are in focus)
+    * only rotations about the x and y axes matter
+    * don't put the keyboard on the same table as the cameras as hitting the spacebar shakes the cameras and messes up the calibration
+    * take 25-30 calibration images
+* once the calibration analysis is complete, you can remove poorly matched image pairs by right clicking the row to improve the score
+* calibration scores
+    * below 0.100 is okay, below 0.050 is good, below 0.030 is great
+    * the units on the calibration scores is residual pixels
+    * calibration scores get worse for more and more extension tubes
+
+
 <!--
+
 <a name="subsetssplines"></a>
 # Subsets, splines, and sub-pixel interpolation
 
@@ -136,52 +183,6 @@ Noise floor (how small can you go?)
 
 Common codes (open source and commercial, link to DIC Challenge)
 
-
-Camera setup
-* first check and clean the cameras, lenses, and filters (UV or polarized)
-    * clean lenses and cameras are super important, but you can really mess stuff up if you introduce scratches, so be very careful
-    * read this great guide from B&H on cleaning lenses and cameras: http://www.bhphotovideo.com/explora/photography/tips-and-solutions/how-clean-your-lens-and-filters
-    * this guide is also good: https://www.borrowlenses.com/blog/2016/08/how-to-clean-a-camera-lens/
-    * there are a couple different ways to look for dust
-        1. by shining a flashlight on the lens or sensor cover
-        2. by pointing the camera at a uniform, diffuse, bright light (e.g. light panel) and increasing the exposure just until the FOV is mostly saturated, then moving the camera and seeing and darker spots in the view that don't move while you're moving the camera
-* cross polarize the lights and lenses to eliminate pernicious saturated pixels, and also boost the contrast a little (lowers errors by about 10%), https://doi.org/10.1007/s11340-016-0129-2 
-* do not just blow air at the lenses from an air can or from your mouth
-    * air cans and mouth blowing introduce moisture and condensation on the lens that leave a residue
-    * use a photography type duster instead
-    * if the duster doesn't get everything, then escalate to tissues
-    * only use new, clean lens cleaning tissues that have been moistened with lens cleaning solution
-    * the lens cleaning kit is stored in GGB 3673 on the shelf near the fume hood
-* use the mid-range apertures, say f/5.6, f/8, or f/11 for an f/1.8 to f/22 lens (the more extreme apertures introduce more distortions in the imaging)
-* see the "stereo-rig design" series from Phil Reu for lots of great info, starting with Part 1 of 4, Creating the Stereo-Rig Layout [Reu 2012, doi: 10.1111/j.1747-1567.2012.00871.x]
-* good focus is critical
-    * make sure that the most important region in your area of interest is the best-focused area
-    * do not follow the directives of the Vic3D manual for focusing, which say to focus at the largest aperture setting (smallest number), and then close the aperture to the desired opening - this is not a good idea because the depth of focus in the sample does not scale equally both towards and away from the camera whenever the aperture is closed (J. Wayne Jones in MSE, an avid photographer, confirmed that this is not how lenses behave, and one of Shaw's summer students Arnaud measured this)
-* lighting should be uniform, bright, and diffuse
-    * LED light panels are great
-    * fiber optical illuminators are alright
-* looking ahead to calibration, you want to make sure that your FOVs will have the calibration grid fill up as much of the FOV as possible without extending any of the calibration grid dots outside of the FOV; the calibration grid filling about 50% or more of the FOV is good
-* be sure to clamp, tie or tape down the camera cables
-* make a conscious effort to avoid touching the cameras and the cables at all!
-
-<a name="calibration"></a>
-# 3-D DIC calibration
-
-* see the calibration series from Phil Reu [doi: 10.1111/ext.12048]
-* if using a glass calibration grid, only indirectly backlight the grid
-    * no direct light, front or back
-    * use the white poster board instead of a piece of paper: matte finish is good
-    * set the light intensity to just before saturation to get good contrast
-* move the grid around in the field of view while taking pictures
-    * do some images at extreme rotations (so long at the three main dots are in focus)
-    * only rotations about the x and y axes matter
-    * don't put the keyboard on the same table as the cameras as hitting the spacebar shakes the cameras and messes up the calibration
-    * take 25-30 calibration images
-* once the calibration analysis is complete, you can remove poorly matched image pairs by right clicking the row to improve the score
-* calibration scores
-    * below 0.100 is okay, below 0.050 is good, below 0.030 is great
-    * the units on the calibration scores is residual pixels
-    * calibration scores get worse for more and more extension tubes
 
 
  -->
