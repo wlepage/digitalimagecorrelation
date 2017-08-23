@@ -34,7 +34,7 @@ DIC is commonly utilized to study the mechanical properties of solids. One of th
 <br /><br />![DIC basics]({{site.baseurl}}/assets/img/DICbasics-01.png)<br /><br />
 
 ### Further reading
-1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [https://doi.org/10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
+1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [doi:10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
 
@@ -51,8 +51,8 @@ An important note is that 3-D DIC can only measure displacements on the surface 
 A second way to categorize DIC algorithms is by the pattern matching technique. The pattern can be separated into multiple subsets that are individually matched. This is called _local DIC_. Alternatively, the pattern can be matched in one go using a finite-element based approach. This is called _global DIC_. Local DIC was introduced before global DIC, and local DIC is more popular. Many of the principles in this guide apply to both local and global DIC, but details that only apply to local DIC (such as subsets) are included.
 
 ### Further reading
-1. (2-D and 3-D DIC) Sutton, M. A., et al. "The effect of out-of-plane motion on 2D and 3D digital image correlation measurements." Optics and Lasers in Engineering 46.10 (2008): 746-757. [https://doi.org/10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)
-1. (digital volume correlation, DVC) Franck, C., et al. "Three-dimensional full-field measurements of large deformations in soft materials using confocal microscopy and digital volume correlation." Experimental Mechanics 47.3 (2007): 427-438. [https://doi.org/10.1007/s11340-007-9037-9](https://doi.org/10.1007/s11340-007-9037-9)
+1. (2-D and 3-D DIC) Sutton, M. A., et al. "The effect of out-of-plane motion on 2D and 3D digital image correlation measurements." Optics and Lasers in Engineering 46.10 (2008): 746-757. [doi:10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)
+1. (digital volume correlation, DVC) Franck, C., et al. "Three-dimensional full-field measurements of large deformations in soft materials using confocal microscopy and digital volume correlation." Experimental Mechanics 47.3 (2007): 427-438. [doi:10.1007/s11340-007-9037-9](https://doi.org/10.1007/s11340-007-9037-9)
 1. (local and global DIC) François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012. 
 
 <a name="patterning"></a>
@@ -92,8 +92,8 @@ For even smaller speckles than powders (about 20 to 100 nanometer speckle size, 
 Lithography is another method for achieving small speckle size, with the benefit of  a higher degree of control than most other microscale patterning methods (Cannon, et al. [doi:10.1007/978-3-319-51439-0_34](https://doi.org/10.1007/978-3-319-51439-0_34)).
 
 ### Further reading
-1. Dong, Y. L., and B. Pan. "A Review of Speckle Pattern Fabrication and Assessment for Digital Image Correlation." Experimental Mechanics (2017): 1-21. [https://doi.org/10.1007/s11340-017-0283-1](https://doi.org/10.1007/s11340-017-0283-1).
-1. Kammers, A. D., and S. Daly. "Small-scale patterning methods for digital image correlation under scanning electron microscopy." Measurement Science and Technology 22.12 (2011): 125501. [https://doi.org/10.1088/0957-0233/22/12/125501](https://doi.org/10.1088/0957-0233/22/12/125501).
+1. Dong, Y. L., and B. Pan. "A Review of Speckle Pattern Fabrication and Assessment for Digital Image Correlation." Experimental Mechanics (2017): 1-21. [doi:10.1007/s11340-017-0283-1](https://doi.org/10.1007/s11340-017-0283-1).
+1. Kammers, A. D., and S. Daly. "Small-scale patterning methods for digital image correlation under scanning electron microscopy." Measurement Science and Technology 22.12 (2011): 125501. [doi:10.1088/0957-0233/22/12/125501](https://doi.org/10.1088/0957-0233/22/12/125501).
 1. Reu, Phillip. "All about speckles: aliasing." Experimental Techniques 38.5 (2014): 1-3. [doi:10.1111/ext.12111](http://doi.org/10.1111/ext.12111)
 1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
 
@@ -111,7 +111,7 @@ The key step of data collection for DIC is capturing images. Most commonly, came
 1. Reu, Phillip. "Stereo‐Rig Design: Creating the Stereo‐Rig Layout--Part 1." Experimental Techniques 36.5 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00871.x](http://doi.org/10.1111/j.1747-1567.2012.00871.x).
 1. Reu, Phillip. "Stereo‐rig Design: Camera Selection---Part 2." Experimental Techniques 36.6 (2012): 3-4 []().
 1. Reu, Phillip. "Stereo‐rig Design: Lens Selection--Part 3." Experimental Techniques 37.1 (2013): 1-3. [doi:10.1111/ext.12000](http://doi.org/10.1111/ext.12000).
-1. Reu, Phillip. "Stereo‐rig Design: Lighting---Part 5." Experimental Techniques 37.3 (2013): 1-2.[doi:10.1111/ext.12020](http://doi.org/10.1111/ext.12020)
+1. Reu, Phillip. "Stereo‐rig Design: Lighting---Part 5." Experimental Techniques 37.3 (2013): 1-2. [doi:10.1111/ext.12020](http://doi.org/10.1111/ext.12020)
 
 
 <!--
