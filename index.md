@@ -9,7 +9,7 @@ Digital image correlation (DIC) is a surface displacement measurement technique 
 The content of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is organized for DIC learners to gather the most important information by reading from start to finish, while more experienced users can jump ahead to a section of interest. The subject matter is intentionally simplified to be accessible to engineers of all skill levels, including undergraduates. Mathematical definitions and derivations are avoided, but should be reviewed and understood by DIC practitioners once their basic skill level is established. At the conclusion of each section, suggestions are provided for more detailed resources.
 
 <a name="fundamentals"></a>
-# DIC fundamentals
+# 1. DIC fundamentals
 The basic operation of DIC is tracking a pattern (often called a [_speckle pattern_](#patterning)) in a sequence of images. The first image in the sequence is defined as the _reference_ image, or the baseline to which the other images are compared. DIC matches the pattern between the reference image and a deformed image, and then calculates the pattern's displacements between the reference and deformed images.
 
 The basic process of a DIC calculation is illustrated below.
@@ -39,7 +39,7 @@ DIC is commonly utilized to study the mechanical properties of solids. One of th
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
 
 <a name="DICtypes"></a>
-# General types of DIC algorithms
+# 2. Types of DIC algorithms
 One way to categorize DIC algorithms is by the dimensions of the calculated displacements. For images collected by just one camera, only two dimensions of displacements can be known. This is called two-dimensional, or _2-D DIC_ (also commonly written as 2D-DIC). When images from more than one camera are used, depth can be measured with triangulation. This is called three-dimensional, or _3-D DIC_ (also commonly written as 3D-DIC). 
 
 2-D DIC assumes that the sample's deformations are constrained to a plane that is parallel to the camera. In practice, out-of-plane motion can be a large source of error for 2-D DIC (Sutton, et al. [doi:10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)). Also, images can have distortions that introduce error into DIC measurements. For example, camera lenses and optical microscopes generally have barrel distortions. 
@@ -59,7 +59,7 @@ A second way to categorize DIC algorithms is by the pattern matching technique. 
 1. (local and global DIC) François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012. 
 
 <a name="patterning"></a>
-# Speckle patterning
+# 3. Speckle patterning
 
 To match the reference and deformed images, DIC tracks features on the sample surface that collectively form the _speckle pattern_. Occasionally, a sample's surface will inherently have features that suffice for a _natural_ speckle pattern, but typically an _artificial_ speckle pattern must be applied to the sample. The quality of DIC results are strongly dependent on the speckle pattern, and optimum speckle patterns meet the following conditions.
 1. The pattern covers the sample surface in the area of interest. 
@@ -103,7 +103,7 @@ Lithography is another method for achieving small speckle size, with the benefit
 1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
 
 <a name="imaging"></a>
-# Image capturing
+# 4. Image capturing
 
 The key step of data collection for DIC is capturing images. In general, good photography or microscopy practices translate to good DIC images, but there are extra considerations for optimizing DIC results. 
 
@@ -141,9 +141,9 @@ Building a successful DIC setup requires making the right equipment choices. For
 
 
 <a name="calibration"></a>
-# Calibration
+# 5. Calibration
 
-For 2-D DIC, the only calibration is a length scale conversion from the pixel space of DIC to the image's magnification, so the calibration needs a line of known length (such as the horizontal field width, or HFW). For 3-D DIC, the cameras must be calibrated with respect to one another in space, so a line is no longer sufficient. Thus, common calibration procedures involve a calibration grid, or a plane of known dimensions. This concept is illustrated below. The artificial speckle pattern and mock calibration grid were generated with the Speckle Generator and Target Generator softwares from Correlated Solutions, Inc.
+For 2-D DIC, the only calibrat ion is a length scale conversion from the pixel space of DIC to the image's magnification, so the calibration needs a line of known length (such as the horizontal field width, or HFW). For 3-D DIC, the cameras must be calibrated with respect to one another in space, so a line is no longer sufficient. Thus, common calibration procedures involve a calibration grid, or a plane of known dimensions. This concept is illustrated below. The artificial speckle pattern and mock calibration grid were generated with the Speckle Generator and Target Generator softwares from Correlated Solutions, Inc.
 
 <br /><br />![DIC calibrations]({{site.baseurl}}/assets/img/calibrations-01.png)<br /><br />
 
