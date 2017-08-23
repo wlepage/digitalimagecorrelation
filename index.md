@@ -152,11 +152,13 @@ For the line length measurement to calibrate 2-D DIC, small errors in the line l
 For 3-D DIC, the calibration procedure varies among DIC software packages, but general best-practices are listed below. 
 
 + For an image horizontal field width (HFW) smaller than about 25 mm, a glass calibration grid with laser-etched marks is recommended due to the high precision at the small length scale. Printed grids on paper suffice for HFWs larger than about 25 mm. If using a printed grid on paper, then firmly affix the printed grid to a flat and rigid substrate, such as a section of PMMA sheet. 
-+ To hold the grid, a dial indicator arm mounted on a two-axis stage with a magnetic base is fantastic. A lower-cost option with similar effect is a third-hand. 
 + For glass calibration grids, then backlight the grid either with a diffuse LED light panel or with indirect backlighting. One indirect backlit option is shining a light on a white poster board with a matte finish.
 + With the grid in the cameras et the light intensity to just before saturation to get good contrast.
 + Incrementally move and rotate the grid in the field of view, then take an image pair. 
 + Take 25-50 calibration images (more can produce even better results, but with diminishing returns).
++ To hold the calibration grid, a dial indicator arm mounted on a two-axis stage with a magnetic base is fantastic. A lower-cost option with similar effect is a third-hand. An example of this hardware is shown below.
+
+<br /><br />![DIC grid holder]({{site.baseurl}}/assets/img/DSC01070_sm.JPG)<br /><br />
 
 #### Further reading
 1. Reu, Phillip. "Calibration: stereo calibration." Experimental Techniques 38.1 (2014): 1-2. [doi:10.1111/ext.12048](http://doi.org/doi:10.1111/ext.12048).
