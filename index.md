@@ -72,7 +72,7 @@ To match the reference and deformed images, DIC tracks features on the sample su
 ```
 1. The pattern has good grayscale contrast, which reduces error (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). One way to visualize this contrast is a histogram: with the number of pixels plotted with respect to grayscale level, the pattern has a mix of dark and bright pixels, indicated by two peaks in the histogram's spectrum, and the separation between the two peaks is broad. Ideally, the two peaks look like a bimodal Gaussian distribution. 
 1. The pattern is stable in the testing environment. For example, for a high-temperature experiment, the pattern does not decay or darken under heating.
-1. The pattern has a speckle density of about 50%. When the pattern has either too few or too many speckles, then this results in features that are both too big and too small (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). This concept is illustrated below.
+1. The pattern has a speckle density of about 50%. When the pattern has either too few or too many speckles, then this results in features that are both too big and too small (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). This concept is illustrated below. The artificial speckle patterns were generated with the Speckle Generator software from Correlated Solutions, Inc.
 
 <br /><br />![Speckle densities]({{site.baseurl}}/assets/img/speckledensity-01.png)<br /><br />
 
@@ -117,6 +117,7 @@ Building a successful DIC setup requires making the right equipment choices. For
 + Lenses should have low distortion. The best lenses for DIC are _telecentric_, which means that the sample's magnification does not vary within the lenses depth or field of view. 
 + For lenses with adjustable apertures, use the mid-range apertures, say f/5.6, f/8, or f/11 for an f/1.8 to f/22 lens (the more extreme apertures introduce more distortions in the imaging).
 + The lenses and cameras should be rigidly mounted on an optics table (ideally) or on a high-quality tripod, and sources of vibration should be minimized. Be sure to clamp, tie, or tape down the camera cables, too.
++ For systems with two or more cameras, much sure the cameras are viewing the same area. Small differences between the height of the epipolar lines can make calibration difficult (Reu. [doi:10.1111/ext.12083](10.1111/ext.12083)).
 + Good focus is critical. Make sure that the most important region in your area of interest is the best-focused area. 
 + Lighting should be evenly distributed along the sample's area of interest. The lighting should be intense enough to achieve sufficient exposure for the images, yet not too intense to introduce saturated pixels. A saturate pixel is the maximum value of the sensor (such as 255 for an 8-bit sensor, 255 = 2^8-1). When a pixel saturates, DIC can no longer perform sub-pixel interpolation at that pixel. 
 + The lighting should also avoid introducing too much heat. Halogen lamps are very bright but also very hot, while LEDs are cooler (but high-intensity LEDs can still generate a significant amount of heat). 
@@ -132,7 +133,6 @@ Building a successful DIC setup requires making the right equipment choices. For
 1. To remove dust, do not blow air at the lenses from an air can or from your mouth, which can introduce moisture on the lens that leaves a residue. Use a photography type duster instead. 
 1. If the duster doesn’t get everything, then escalate to lens cleaning tissues. Only use new, clean lens cleaning tissues that have been moistened with lens cleaning solution.
 
-
 #### Further reading
 1. Reu, Phillip. "Stereo‐Rig Design: Creating the Stereo‐Rig Layout--Part 1." Experimental Techniques 36.5 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00871.x](http://doi.org/10.1111/j.1747-1567.2012.00871.x).
 1. Reu, Phillip. "Stereo‐rig Design: Camera Selection---Part 2." Experimental Techniques 36.6 (2012): 3-4 []().
@@ -143,27 +143,23 @@ Building a successful DIC setup requires making the right equipment choices. For
 <a name="calibration"></a>
 # Calibration
 
-For 2-D DIC, the only calibration is a length scale conversion from the pixel space of DIC to the image's magnification, so the calibration needs a line of known length (such as the horizontal field width, or HFW). For 3-D DIC, the cameras must be calibrated with respect to one another in space, so a line is no longer sufficient. Thus, common calibration procedures involve a calibration grid, or a plane of known dimensions. This concept is illustrated below. 
+For 2-D DIC, the only calibration is a length scale conversion from the pixel space of DIC to the image's magnification, so the calibration needs a line of known length (such as the horizontal field width, or HFW). For 3-D DIC, the cameras must be calibrated with respect to one another in space, so a line is no longer sufficient. Thus, common calibration procedures involve a calibration grid, or a plane of known dimensions. This concept is illustrated below. The artificial speckle pattern and mock calibration grid were generated with the Speckle Generator and Target Generator softwares from Correlated Solutions, Inc.
 
 <br /><br />![DIC calibrations]({{site.baseurl}}/assets/img/calibrations-01.png)<br /><br />
 
-* see the stereo calibration series from Phil Reu [doi: 10.1111/ext.12048]
-* to hold the grid, use a dial indicator arm with magnetic base
-* if using a glass calibration grid, only indirectly backlight the grid
-    * no direct light, front or back
-    * use the white poster board instead of a piece of paper: matte finish is good
-    * set the light intensity to just before saturation to get good contrast
-* move the grid around in the field of view while taking pictures
-    * do some images at extreme rotations (so long at the three main dots are in focus)
-    * only rotations about the x and y axes matter
-    * don't put the keyboard on the same table as the cameras as hitting the spacebar shakes the cameras and messes up the calibration
-    * take 25-30 calibration images
-* once the calibration analysis is complete, you can remove poorly matched image pairs by right clicking the row to improve the score
-* calibration scores
-    * below 0.100 is okay, below 0.050 is good, below 0.030 is great
-    * the units on the calibration scores is residual pixels
-    * calibration scores get worse for more and more extension tubes
+For the line length measurement to calibrate 2-D DIC, small errors in the line length can create large errors in the resulting displacements, so an accurate reference such as a precision ruler should be used.
 
+For 3-D DIC, the calibration procedure varies among DIC software packages, but general best-practices are listed below. 
+
++ For an image horizontal field width (HFW) smaller than about 25 mm, a glass calibration grid with laser-etched marks is recommended due to the high precision at the small length scale. Printed grids on paper suffice for HFWs larger than about 25 mm. If using a printed grid on paper, then firmly affix the printed grid to a flat and rigid substrate, such as a section of PMMA sheet. 
++ To hold the grid, a dial indicator arm mounted on a two-axis stage with a magnetic base is fantastic. A lower-cost option with similar effect is a third-hand. 
++ For glass calibration grids, then backlight the grid either with a diffuse LED light panel or with indirect backlighting. One indirect backlit option is shining a light on a white poster board with a matte finish.
++ With the grid in the cameras et the light intensity to just before saturation to get good contrast.
++ Incrementally move and rotate the grid in the field of view, then take an image pair. 
++ Take 25-50 calibration images (more can produce even better results, but with diminishing returns).
+
+#### Further reading
+1. Reu, Phillip. "Calibration: stereo calibration." Experimental Techniques 38.1 (2014): 1-2. [doi:10.1111/ext.12048](http://doi.org/doi:10.1111/ext.12048).
 
 <!--
 
