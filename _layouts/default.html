@@ -48,9 +48,11 @@
   <script href="/assets/js/jquery-ui-1.9.2.custom.min.js"></script>
   <script href="/assets/js/jquery.tocify.min.js"></script>
   <script>
-    $(function() {
-      $("#toc").tocify();
-    });
+      $(function() {
+          var toc = $("#toc").tocify({ selectors: "h2, h3, h4" }).data("toc-tocify");
+          prettyPrint();
+          $(".optionName").popover({ trigger: "hover" });
+      });
   </script>
   </body>
 </html>
