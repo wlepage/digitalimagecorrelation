@@ -175,6 +175,11 @@ For 3-D DIC, the calibration procedure varies among DIC software packages, but g
 Blurring (how fast to capture images?)
 Noise floor (how small can you go?)
 
+#### Cautions with strains
+* small strain assumption
+* also strain filter (gradients can be missed, see JC's SEM-DIC paper)
+* Info about averaging the strains in the field (small strain assumption) vs using an extensometer
+
 
 <a name="DICcodes"></a>
 # Comparison of DIC codes
