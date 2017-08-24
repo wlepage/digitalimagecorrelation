@@ -33,6 +33,25 @@ The displacement at each DIC point is a vector, so the components of the vector 
 DIC is commonly utilized to study the mechanical properties of solids. One of the most common experiments for solid materials is a _uniaxial tension_ experiment, shown in the schematic below. The goal of this experiment is to quantify how much the material deforms when a force is applied. There are many different ways to measure the deformation of the material, including strain gauges, extensometers (mechanical, laser, or optical), and DIC. While strain gauges and extensometers provide a single measurement of strain or displacement in the material, DIC can provide many displacement measurements across the material. With displacements across the material, DIC can capture the local deformations that arise from inhomogeneity, cracking, stress concentrations, plastic instabilities, phase transformations, and other localized material phenomena.
 <br /><br />![DIC basics]({{site.baseurl}}/assets/img/DICbasics-01.png)<br /><br />
 
+
+## Subsets, splines, and sub-pixel interpolation
+
+An important criterion for DIC is the subset size. The most important factor for determining subset size is the requirement for each subset to contain at least three speckles (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). A secondary factor for subset size is the competition between 
+
++ Subset size selection, spline interpolation, and saturated pixels (at least 3 specks/subset = Big Red; bigger subsets = better pattern matching with reference image, but smooths out the DIC data (lower spatial resolution) and also increases computation time.) 
+
+<br /><br />![Interpolation]({{site.baseurl}}/assets/img/interpolation-01.png)<br /><br />
+
+## Spatial and temporal resolution limits
+Blurring (how fast to capture images?)
+Noise floor (how small can you go?)
+
+## Strain calculation
+* small strain assumption
+* also strain filter (gradients can be missed, see JC's SEM-DIC paper)
+* Info about averaging the strains in the field (small strain assumption) vs using an extensometer
+
+
 #### Further reading
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [doi:10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
@@ -163,23 +182,8 @@ For 3-D DIC, the calibration procedure varies among DIC software packages, but g
 #### Further reading
 1. Reu, Phillip. "Calibration: stereo calibration." Experimental Techniques 38.1 (2014): 1-2. [doi:10.1111/ext.12048](http://doi.org/doi:10.1111/ext.12048).
 
+
 <!--
-
-<a name="subsetssplines"></a>
-# Subsets, splines, and sub-pixel interpolation
-
-+ Subset size selection, spline interpolation, and saturated pixels (at least 3 specks/subset = Big Red; bigger subsets = better pattern matching with reference image, but smooths out the DIC data (lower spatial resolution) and also increases computation time.) 
-
-<a name="spatialtemporallimits"></a>
-# Spatial and temporal resolution limits
-Blurring (how fast to capture images?)
-Noise floor (how small can you go?)
-
-#### Cautions with strains
-* small strain assumption
-* also strain filter (gradients can be missed, see JC's SEM-DIC paper)
-* Info about averaging the strains in the field (small strain assumption) vs using an extensometer
-
 
 <a name="DICcodes"></a>
 # Comparison of DIC codes
