@@ -25,8 +25,6 @@ The previous example computed the displacements from one subset, but DIC compute
 
 From the five subsets (one from the first example, and four more from the second example), there are five total points for which the displacements have been calculated. Each of these points can be referred to as a _DIC point_. 
 
-Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels. Since DIC calculations are performed on images with inherent units of pixels, DIC algorithms are length-scale independent. The length scale of the displacements (e.g. millimeters) is introduced by the magnification of the images.
-
 The displacement at each DIC point is a vector, so the components of the vector can be decomposed. For two dimensions of displacement, the components can be written in a Cartesian coordinate system as the horizontal displacement (_u_) and vertical displacement (_v_). Three dimensions of displacements (_u_, _v_, and _w_) can also be measured with a more complicated type of DIC that uses triangulation -- more on this in the section on the [main types of DIC](#DICtypes).
 <br /><br />![DIC points]({{site.baseurl}}/assets/img/DICfivepoints-01.png)<br /><br />
 
@@ -34,28 +32,32 @@ DIC is commonly utilized to study the mechanical properties of solids. One of th
 <br /><br />![DIC basics]({{site.baseurl}}/assets/img/DICbasics-01.png)<br /><br />
 
 
-## Subsets, splines, and sub-pixel interpolation
+## Subset and step sizes
 
-An important criterion for DIC is the subset size. The most important factor for determining subset size is the requirement for each subset to contain at least three speckles (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). A secondary factor for subset size is the competition between 
+Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels. The most important factor for determining subset size is that each subset should contain at least three speckles (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). A secondary factor for choosing subset size is the competition of better pattern matching for bigger subsets (with more uniqueness for a larger area of features in the image) versus better spatial resolution for smaller subsets (with less spatial smoothing/filtering of the image data). A third factor is that larger subsets require more computation time. The step size has a much stronger effect on spatial resolution than the subset size. Smaller step sizes yield more DIC data points and thus higher spatial resolution. 
 
-+ Subset size selection, spline interpolation, and saturated pixels (at least 3 specks/subset = Big Red; bigger subsets = better pattern matching with reference image, but smooths out the DIC data (lower spatial resolution) and also increases computation time.) 
+## Spatial and temporal resolution limits
+
+Two important questions for planning DIC experiments are (1) What is the smallest displacement that this experiment can reliably measure?, and (2) What is the image exposure time that should be used?
+
+(1) The smallest possible displacement measurement is limited by the quality of the experiment's images. In general, DIC algorithms are capable of detecting sub-pixel displacements on the order of 0.01 px. Sub-pixel displacement resolution is enabled by interpolation (generally bicubic spline interpoltion) on the image data. A simple example of this interpolation is demonstrated below on a portion of an image from a DIC experiment. In practice, experimental variables introduce error into the measurements, and the smallest displacement measurements that can be expected from DIC, often called the "noise floor," is on the order of 0.10 px.
 
 <br /><br />![Interpolation]({{site.baseurl}}/assets/img/interpolation-01.png)<br /><br />
 
-## Spatial and temporal resolution limits
-Blurring (how fast to capture images?)
-Noise floor (how small can you go?)
+(2) Since the noise floor of DIC in practice is about 0.10 px, then the images should be captured with an exposure time that limits the sample motion during the exposure time to less than 0.10 px (or even less than 0.05 px to be safe). If the exposure time exceeded the noise floor of the calculation, then the images would have blurring that would deteriorate the DIC displacement accuracy. For example, if the sample displacement is 1 micron/second, and the imaging resolution is 10 microns/px, then the DIC noise floor is `0.10 px * (10 microns/px) = 1 micron`, so the image exposure time should be less than 1 second (or less than 0.1 second to be safe, by matching the limit of 0.01 px for DIC algorithms). 
 
 ## Strain calculation
-* small strain assumption
-* also strain filter (gradients can be missed, see JC's SEM-DIC paper)
-* Info about averaging the strains in the field (small strain assumption) vs using an extensometer
+
+Computing strains is a common post-processing step with the displacements from DIC. Generally, spatial strains are computed from the displacements with a spatial derivative that has a filtering operator. This filtering in the strain calculation can blur highly-localized deformations with sharp features or discontinuities. With spatial filtering to compute the strains, the sharp features are smoothed out and can hide key phenomena like slip bands (Stinville, et al. [doi:10.1007/s11340-015-0083-4](http://doi.org/10.1007/s11340-015-0083-4). 
+
+A second precaution for using DIC strain data is that the field of strains calculated with spatial derivatives on DIC displacements make a small strain assumption (from _infinitesimal strain_ theory, in contrast with _finite strain_ theory). In the small strain assumption, the higher order term of the strain calculation is neglected. Broadly, the small strain assumption has less than 10% error for strains less than 10%, but is problematic for strains larger than 10%. An alternative to using spatial strains with DIC data is creating "virtual extensometers" that measure a one-dimensional engineering strain (change in length divided by original length). For a uniaxial tension experiment with DIC, many virtual extensometers can be defined across the gauge length of the sample, and then an average engineering strain (and statistics on the measurement noise) can be computed.
 
 
 #### Further reading
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [doi:10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
+1. Wikipedia, Infinitesimal strain theory. [https://en.wikipedia.org/wiki/Infinitesimal_strain_theory](https://en.wikipedia.org/wiki/Infinitesimal_strain_theory).
 
 <a name="DICtypes"></a>
 # 2. Types of DIC algorithms
@@ -84,11 +86,8 @@ To match the reference and deformed images, DIC tracks features on the sample su
 1. The pattern covers the sample surface in the area of interest. 
 1. The pattern moves and deforms with the sample, but does not exert a significant mechanical stress on the sample. In other words, the pattern is fully adhered to the sample, but deforms extremely easily compared to the sample. 
 1. The features that comprise the pattern (the _speckles_) are random in position but uniform in size. 
-1. The speckle size is at least 3 pixels to avoid aliasing (Reu. [doi:10.1111/ext.12111](http://doi.org/10.1111/ext.12111)), but not much more than 7 pixels to achieve a relatively high density of DIC points (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. Also, note that these speckle sizes are not averages, but are rather the range of the smallest and largest speckles (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). Here is an example of a calculation to estimate the desired speckle size range: 
-```
-12 mm / 2048 px * (3 to 7 px per speckle) 
- = 18 to 41 microns per speckle
-```
+1. The speckle size is at least 3 pixels to avoid aliasing (Reu. [doi:10.1111/ext.12111](http://doi.org/10.1111/ext.12111)), but not much more than 7 pixels to achieve a relatively high density of DIC points (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. Also, note that these speckle sizes are not averages, but are rather the range of the smallest and largest speckles (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). Here is an example of a calculation to estimate the desired speckle size range: `12 mm / 2048 px * (3 to 7 px per speckle) = 18 to 41 microns per speckle`.
+
 1. The pattern has good grayscale contrast, which reduces error (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). One way to visualize this contrast is a histogram: with the number of pixels plotted with respect to grayscale level, the pattern has a mix of dark and bright pixels, indicated by two peaks in the histogram's spectrum, and the separation between the two peaks is broad. Ideally, the two peaks look like a bimodal Gaussian distribution. 
 1. The pattern is stable in the testing environment. For example, for a high-temperature experiment, the pattern does not decay or darken under heating.
 1. The pattern has a speckle density of about 50%. When the pattern has either too few or too many speckles, then this results in features that are both too big and too small (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). This concept is illustrated below. The artificial speckle patterns were generated with the Speckle Generator software from Correlated Solutions, Inc.
