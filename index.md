@@ -14,7 +14,7 @@ The basic operation of DIC is tracking a pattern (often called a [_speckle patte
 
 The basic process of a DIC calculation is illustrated below.
 (a) The reference image has a recognizable pattern of dots that will be tracked.
-(b) A portion of the pattern, called a _subset_, is selected for tracking.
+(b) A portion of the pattern, called a _subset_, is selected for tracking. The term _facet_ is also used instead of _subset_, but this guide adopts the term _subset_.
 (c) The center of the subset (the red dot, which is _not_ part of the speckle pattern) is the place in the reference image from which the displacement will be calculated.
 (d) After the material is deformed from the reference image's initial position, the subset in the deformed image is matched to the subset from the reference image. 
 (e) Once the subset is matched, DIC calculates the subset center's relative displacement between the reference and deformed images. The displacement here is the (small) difference between the blue and red dots. The next example will show how this basic operation is extended to multiple subsets and DIC points. 
@@ -58,6 +58,20 @@ A second precaution for using DIC strain data is that the field of strains calcu
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [doi:10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
 1. Wikipedia, Infinitesimal strain theory. [https://en.wikipedia.org/wiki/Infinitesimal_strain_theory](https://en.wikipedia.org/wiki/Infinitesimal_strain_theory).
+
+<!-- 
+
+DICstepsizecompare-01
+
+<a name="DICtypes"></a>
+# num. Planning and validation
+
+
+## Suggestions for when _not_ to use DIC
+
+Grid method for better spatial resolution. Especially useful for high-speed cameras that have relatively few pixels (thegridmethod.net).
+
+-->
 
 <a name="DICtypes"></a>
 # 2. Types of DIC algorithms
