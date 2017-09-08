@@ -119,6 +119,10 @@ If the sample will undergo large deformations and/or high strain rates, then pla
 #### Inks and dyes
 For hyperelastic materials (including many elastomers, polymers, and biomaterials), paint is not stretchy enough to track with the sample as a speckle pattern. Inks and dyes that permeate the sample material can be viable speckle pattern options. Stamping, masking, spraying, and stenciling can be deployed to apply the ink or dye. Some DIC practitioners use permanent markers, as well. 
 
+<!--
+Lionello, Giacomo, Camille Sirieix, and Massimiliano Baleani. "An effective procedure to create a speckle pattern on biological soft tissue for digital image correlation measurements." Journal of the mechanical behavior of biomedical materials 39 (2014): 1-8.
+-->
+
 #### Powder particles
 For moist or sticky materials, powder particles may adhere better than paint. Graphite powder is popular for dark speckles, and alumina or magnesium oxide can be used for a white basecoat. Another use for powder patterns is achieving smaller speckles than painted patterns can produce. Using a combination of filters and compressed air, powder particle patterns smaller than 10 microns can be deposited on a smooth/polished sample to form a speckle pattern (Jonnalagadda, et al. [doi:10.1007/s11340-008-9212-7](https://doi.org/10.1007/s11340-008-9212-7)).
 
@@ -170,6 +174,12 @@ Building a successful DIC setup requires making the right equipment choices. For
 1. Reu, Phillip. "Stereo‐rig Design: Camera Selection---Part 2." Experimental Techniques 36.6 (2012): 3-4 []().
 1. Reu, Phillip. "Stereo‐rig Design: Lens Selection--Part 3." Experimental Techniques 37.1 (2013): 1-3. [doi:10.1111/ext.12000](http://doi.org/10.1111/ext.12000).
 1. Reu, Phillip. "Stereo‐rig Design: Lighting---Part 5." Experimental Techniques 37.3 (2013): 1-2. [doi:10.1111/ext.12020](http://doi.org/10.1111/ext.12020)
+
+<!--
+Camera triggering
+Patternson's clever double laser triggering system for dynamic events (https://doi.org/10.1016/j.jsv.2017.03.024).
+
+-->
 
 
 <a name="calibration"></a>
