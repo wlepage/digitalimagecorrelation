@@ -15,7 +15,7 @@ The basic operation of DIC is tracking a pattern (often called a [_speckle patte
 
 The first image in the sequence is defined as the _reference_ image, or the baseline to which the other images are compared. DIC matches the pattern between the reference image and a deformed image, and then calculates the pattern's displacements between the reference and deformed images.
 
-The basic process of a DIC calculation is illustrated below.
+A simplification of the DIC analysis is illustrated below.
 (a) The reference image has a recognizable pattern of dots that will be tracked.
 (b) A portion of the pattern, called a _subset_, is selected for tracking. The term _facet_ is also used instead of _subset_, but this guide adopts the term _subset_.
 (c) The center of the subset (the red dot, which is _not_ part of the speckle pattern) is the place in the reference image from which the displacement will be calculated.
