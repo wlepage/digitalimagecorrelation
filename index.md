@@ -61,9 +61,9 @@ A second precaution for using DIC strain data is that the field of strains calcu
 ## Suggestions for when _not_ to use DIC
 
 DIC is not a miraculous measurement technique, and there are many experiments in solid mechanics that are better suited to other techniques. Here is a non-exhaustive list. 
-1. ### __Measuring very small strains__ 
+1. #### __Measuring very small strains__ 
 The minimum resolvable strain for DIC varies from setup to setup, but a rule of thumb is that the noise floor of DIC in practice is about 0.1 px. If the strain(s) of interest would correspond to displacements of less than 0.1 px displacement, then DIC will not give a reliable measurement. Consider mechanical extensometers, laser extensometers, and strain gauges instead.
-1. ### __Measuring deformations with low pixel-size sensors (e.g. ultra high speed cameras)__
+1. #### __Measuring deformations with low pixel-size sensors (e.g. ultra high speed cameras)__
 DIC has lower spatial resolution than other full-field measurement techniques (most notably, the grid method). The grid method is a Fourier-based analysis on the deformation of a regular grid pattern. More information and open-source codes on the grid method can be found at [thegridmethod.net](http://www.thegridmethod.net/).
 
 
