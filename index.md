@@ -10,7 +10,10 @@ The content of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/
 
 <a name="fundamentals"></a>
 # 1. DIC fundamentals
-The basic operation of DIC is tracking a pattern (often called a [_speckle pattern_](#patterning)) in a sequence of images. The first image in the sequence is defined as the _reference_ image, or the baseline to which the other images are compared. DIC matches the pattern between the reference image and a deformed image, and then calculates the pattern's displacements between the reference and deformed images.
+The basic operation of DIC is tracking a pattern (often called a [_speckle pattern_](#patterning)) in a sequence of images. The process of a DIC experiment (illustrated below) can be divided into three steps: (1) obtain a pattern on the sample for tracking, (2) capture images of the sample during motion/deformation, and (3) analyze the images to compute the sample surface's displacements.
+<br /><br />![DIC process]({{site.baseurl}}/assets/img/DICprocess-01.png)<br /><br />
+
+The first image in the sequence is defined as the _reference_ image, or the baseline to which the other images are compared. DIC matches the pattern between the reference image and a deformed image, and then calculates the pattern's displacements between the reference and deformed images.
 
 The basic process of a DIC calculation is illustrated below.
 (a) The reference image has a recognizable pattern of dots that will be tracked.
@@ -34,7 +37,9 @@ DIC is commonly utilized to study the mechanical properties of solids. One of th
 
 ## Subset and step sizes
 
-Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels. The most important factor for determining subset size is that each subset should contain at least three speckles (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). A secondary factor for choosing subset size is the competition of better pattern matching for bigger subsets (with more uniqueness for a larger area of features in the image) versus better spatial resolution for smaller subsets (with less spatial smoothing/filtering of the image data). A third factor is that larger subsets require more computation time. The step size has a much stronger effect on spatial resolution than the subset size. Smaller step sizes yield more DIC data points and thus higher spatial resolution. 
+Two important dimensions in a DIC calculation are the _subset size_ and the _step size_. The subset size is the width and height of the subset square in the reference image. The step size is the distance between subset centers. Both the subset size and step size are measured in units of pixels. The most important factor for determining subset size is that each subset should contain at least three speckles (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). A secondary factor for choosing subset size is the competition of better pattern matching for bigger subsets (with more uniqueness for a larger area of features in the image) versus better spatial resolution for smaller subsets (with less spatial smoothing/filtering of the image data). A third factor is that larger subsets require more computation time. The step size has a much stronger effect on spatial resolution than the subset size. Smaller step sizes yield more DIC data points and thus higher spatial resolution. The diagram below shows a range of step sizes for the same field of view and subset sizes.
+<br /><br />![DIC setup sizes]({{site.baseurl}}/assets/img/DICstepsizecompare-01.png)<br /><br />
+
 
 ## Spatial and temporal resolution limits
 
@@ -53,25 +58,20 @@ Computing strains is a common post-processing step with the displacements from D
 A second precaution for using DIC strain data is that the field of strains calculated with spatial derivatives on DIC displacements make a small strain assumption (from _infinitesimal strain_ theory, in contrast with _finite strain_ theory). In the small strain assumption, the higher order term of the strain calculation is neglected. Broadly, the small strain assumption has less than 10% error for strains less than 10%, but is problematic for strains larger than 10%. An alternative to using spatial strains with DIC data is creating "virtual extensometers" that measure a one-dimensional engineering strain (change in length divided by original length). For a uniaxial tension experiment with DIC, many virtual extensometers can be defined across the gauge length of the sample, and then an average engineering strain (and statistics on the measurement noise) can be computed.
 
 
+## Suggestions for when _not_ to use DIC
+
+DIC is not a miraculous measurement technique, and there are many experiments in solid mechanics that are better suited to other techniques. Here is a non-exhaustive list. 
+1. ### __Measuring very small strains__ 
+The minimum resolvable strain for DIC varies from setup to setup, but a rule of thumb is that the noise floor of DIC in practice is about 0.1 px. If the strain(s) of interest would correspond to displacements of less than 0.1 px displacement, then DIC will not give a reliable measurement. Consider mechanical extensometers, laser extensometers, and strain gauges instead.
+1. ### __Measuring deformations with low pixel-size sensors (e.g. ultra high speed cameras)__
+DIC has lower spatial resolution than other full-field measurement techniques (most notably, the grid method). The grid method is a Fourier-based analysis on the deformation of a regular grid pattern. More information and open-source codes on the grid method can be found at [thegridmethod.net](http://www.thegridmethod.net/).
+
+
 #### Further reading
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [doi:10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
 1. Wikipedia, Infinitesimal strain theory. [https://en.wikipedia.org/wiki/Infinitesimal_strain_theory](https://en.wikipedia.org/wiki/Infinitesimal_strain_theory).
-
-<!-- 
-
-DICstepsizecompare-01
-
-<a name="DICtypes"></a>
-# num. Planning and validation
-
-
-## Suggestions for when _not_ to use DIC
-
-Grid method for better spatial resolution. Especially useful for high-speed cameras that have relatively few pixels (thegridmethod.net).
-
--->
 
 <a name="DICtypes"></a>
 # 2. Types of DIC algorithms
@@ -101,8 +101,8 @@ To match the reference and deformed images, DIC tracks features on the sample su
 1. The pattern moves and deforms with the sample, but does not exert a significant mechanical stress on the sample. In other words, the pattern is fully adhered to the sample, but deforms extremely easily compared to the sample. 
 1. The features that comprise the pattern (the _speckles_) are random in position but uniform in size. 
 1. The speckle size is at least 3 pixels to avoid aliasing (Reu. [doi:10.1111/ext.12111](http://doi.org/10.1111/ext.12111)), but not much more than 7 pixels to achieve a relatively high density of DIC points (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). If speckles are much larger than 7 pixels, then there will be relatively few DIC data points possible. Also, note that these speckle sizes are not averages, but are rather the range of the smallest and largest speckles (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). Here is an example of a calculation to estimate the desired speckle size range: `12 mm / 2048 px * (3 to 7 px per speckle) = 18 to 41 microns per speckle`.
-
 1. The pattern has good grayscale contrast, which reduces error (Sutton, Orteu, Schreier. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)). One way to visualize this contrast is a histogram: with the number of pixels plotted with respect to grayscale level, the pattern has a mix of dark and bright pixels, indicated by two peaks in the histogram's spectrum, and the separation between the two peaks is broad. Ideally, the two peaks look like a bimodal Gaussian distribution. 
+1. The edges of the speckles are softened (rather than sharp and distinct with the background). This allows the pixels of the camera sensor to avoid aliasing the speckle edge (Reu. [doi:10.1111/ext.12139](http://doi.org/10.1111/ext.12139)).
 1. The pattern is stable in the testing environment. For example, for a high-temperature experiment, the pattern does not decay or darken under heating.
 1. The pattern has a speckle density of about 50%. When the pattern has either too few or too many speckles, then this results in features that are both too big and too small (Reu. [doi:10.1111/ext.12110](http://doi.org/10.1111/ext.12110)). This concept is illustrated below. The artificial speckle patterns were generated with the Speckle Generator software from Correlated Solutions, Inc.
 
@@ -117,11 +117,7 @@ Painted speckle patterns are popular because paint is relatively compliant to mo
 If the sample will undergo large deformations and/or high strain rates, then plan to perform the experiment within 24 to 48 hours of painting. As the paint dries and hardens, it loses its ability to deform with the sample (Reu. [doi:10.1111/ext.12147](http://doi.org/10.1111/ext.12147)). A range of speckle sizes can be produced with sprayed paint. Artist grade airbrushes, such as the Iwata CM-B, can produce speckle sizes between 10 and 100 microns by varying the airbrush pressure (more pressure creates smaller speckles). Cans of spray paint can produce larger speckles, in the range of 100 to 1000 microns.
 
 #### Inks and dyes
-For hyperelastic materials (including many elastomers, polymers, and biomaterials), paint is not stretchy enough to track with the sample as a speckle pattern. Inks and dyes that permeate the sample material can be viable speckle pattern options. Stamping, masking, spraying, and stenciling can be deployed to apply the ink or dye. Some DIC practitioners use permanent markers, as well. 
-
-<!--
-Lionello, Giacomo, Camille Sirieix, and Massimiliano Baleani. "An effective procedure to create a speckle pattern on biological soft tissue for digital image correlation measurements." Journal of the mechanical behavior of biomedical materials 39 (2014): 1-8.
--->
+For hyperelastic materials (including many elastomers, polymers, and biomaterials), paint is not stretchy enough to track with the sample as a speckle pattern. Inks and dyes that permeate the sample material can be viable speckle pattern options. Stamping, masking, spraying, and stenciling can be deployed to apply the ink or dye. For example, biological soft tissue can be stained with methylene blue and then airbrushed with white paint for speckles (Lionello, et al. [doi:10.1016/j.jmbbm.2014.07.007](https://doi.org/10.1016/j.jmbbm.2014.07.007)). Some DIC practitioners use permanent markers, as well. 
 
 #### Powder particles
 For moist or sticky materials, powder particles may adhere better than paint. Graphite powder is popular for dark speckles, and alumina or magnesium oxide can be used for a white basecoat. Another use for powder patterns is achieving smaller speckles than painted patterns can produce. Using a combination of filters and compressed air, powder particle patterns smaller than 10 microns can be deposited on a smooth/polished sample to form a speckle pattern (Jonnalagadda, et al. [doi:10.1007/s11340-008-9212-7](https://doi.org/10.1007/s11340-008-9212-7)).
@@ -149,7 +145,7 @@ Building a successful DIC setup requires making the right equipment choices. For
 
 #### Tips on cameras, lenses, and lights
 + For DIC images, color is superfluous and can be problematic. The best practice is to select black-and-white cameras. Often, cameras that are marketed for machine vision applications are very suitable for DIC, as well.
-+ The camera sensor should have low noise, high quantum efficiency, and high dynamic range. Historically, charge-coupled device (CCD) sensors have outperformed complementary metal–oxide–semiconductor (CMOS) sensors, but new advancements in sensor technologies have leveled the playing field between CCD sensors and the next-generation of CMOS sensors (e.g. Sony Pregius). 
++ The camera sensor should have low noise, high quantum efficiency, and high dynamic range. Historically, charge-coupled device (CCD) sensors have outperformed complementary metal--oxide--semiconductor (CMOS) sensors, but new advancements in sensor technologies have leveled the playing field between CCD sensors and the next-generation of CMOS sensors (e.g. Sony Pregius). 
 + Lenses should have low distortion. The best lenses for DIC are _telecentric_, which means that the sample's magnification does not vary within the lenses depth or field of view. 
 + For lenses with adjustable apertures, use the mid-range apertures, say f/5.6, f/8, or f/11 for an f/1.8 to f/22 lens (the more extreme apertures introduce more distortions in the imaging).
 + The lenses and cameras should be rigidly mounted on an optics table (ideally) or on a high-quality tripod, and sources of vibration should be minimized. Be sure to clamp, tie, or tape down the camera cables, too.
@@ -164,10 +160,10 @@ Building a successful DIC setup requires making the right equipment choices. For
 
 1. The lenses and cameras must be cleaned to remove dust. Two easy ways to check for dust on DIC gear: 
 	+ Shine a flashlight on the lens or sensor cover and move the flashlight around at different angles. Any specks of dust will be more visible.
-	+ Point the camera at a uniform, diffuse, bright light (e.g. light panel with a diffuser) and increase the exposure just until the image is mostly saturated, then moving the camera and seeing and darker spots in the view that don’t move while you’re moving the camera.
+	+ Point the camera at a uniform, diffuse, bright light (e.g. light panel with a diffuser) and increase the exposure just until the image is mostly saturated, then moving the camera and seeing and darker spots in the view that don't move while you're moving the camera.
 1. Be especially careful while cleaning cameras, lenses, and sensors (only clean sensors with protective covers or panels), because improperly cleaning the gear can introduce permanent scratches. For a primer on cleaning photography gear, [B&H photo has a great guide](http://www.bhphotovideo.com/explora/photography/tips-and-solutions/how-clean-your-lens-and-filters). 
 1. To remove dust, do not blow air at the lenses from an air can or from your mouth, which can introduce moisture on the lens that leaves a residue. Use a photography type duster instead. 
-1. If the duster doesn’t get everything, then escalate to lens cleaning tissues. Only use new, clean lens cleaning tissues that have been moistened with lens cleaning solution.
+1. If the duster doesn't get everything, then escalate to lens cleaning tissues. Only use new, clean lens cleaning tissues that have been moistened with lens cleaning solution.
 
 #### Further reading
 1. Reu, Phillip. "Stereo‐Rig Design: Creating the Stereo‐Rig Layout--Part 1." Experimental Techniques 36.5 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00871.x](http://doi.org/10.1111/j.1747-1567.2012.00871.x).
@@ -204,6 +200,16 @@ For 3-D DIC, the calibration procedure varies among DIC software packages, but g
 
 #### Further reading
 1. Reu, Phillip. "Calibration: stereo calibration." Experimental Techniques 38.1 (2014): 1-2. [doi:10.1111/ext.12048](http://doi.org/doi:10.1111/ext.12048).
+
+
+
+<a name="DICtypes"></a>
+# 6. Validation and error evaluation
+
+An important question for a DIC practitioner to ask is, "How accurate are these measurements?" Evaluating DIC errors is important because DIC results can vary widely among setups, speckle patterns, correlation parameters, and other conditions. It is difficult to separate the relative contributions of individual error sources in DIC experiments, but the overall error of an experiment can be estimated with appropriate measurements. Two possible validation and error evaluation methods are discussed below. 
+
+1. Measure the noise floor of the setup and speckle pattern by capturing the "Type A" errors from repeated, static images (no motion or deformation between images). The mean and distribution of the displacements represent the noise floor (which should be about 0.1 px, and is not zero because of noise and error). (Reu, [doi:10.1007/978-3-319-22446-6_24](https://doi.org/10.1007/978-3-319-22446-6_24)). 
+1. Compare the displacements (or strains) from DIC with a second measurement. A direct comparison with displacements can be accomplished with precise rigid body translations on the sample from a trusted source (e.g. Vernier micrometer or precision linear stage). The displacements can also be measured from an LVDT, laser, or other techniques. Strains and deformations can be compared with extensometers (mechanical or laser), as well as strain gauges (although strain gauges are limited to small strains). 
 
 
 <!--
