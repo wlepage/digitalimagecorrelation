@@ -203,7 +203,7 @@ For 3-D DIC, the calibration procedure varies among DIC software packages, but g
 
 
 
-<a name="DICtypes"></a>
+<a name="errors"></a>
 # 6. Validation and error evaluation
 
 An important question for a DIC practitioner to ask is, "How accurate are these measurements?" Evaluating DIC errors is important because DIC results can vary widely among setups, speckle patterns, correlation parameters, and other conditions. It is difficult to separate the relative contributions of individual error sources in DIC experiments, but the overall error of an experiment can be estimated with appropriate measurements. Two possible validation and error evaluation methods are discussed below. 
