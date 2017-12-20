@@ -154,7 +154,7 @@ Building a successful DIC setup requires making the right equipment choices. For
 + Lighting should be evenly distributed along the sample's area of interest. The lighting should be intense enough to achieve sufficient exposure for the images, yet not too intense to introduce saturated pixels. A saturated pixel is the maximum value of the sensor (such as 255 for an 8-bit sensor, 255 = 2^8-1). When a pixel saturates, DIC can no longer perform sub-pixel interpolation at that pixel. 
 + The lighting should also avoid introducing too much heat. Halogen lamps are very bright but also very hot, while LEDs are cooler (but high-intensity LEDs can still generate a significant amount of heat). 
 + For maximizing optical DIC results, polarizing filters can be placed orthogonally on the lights and lenses (a photography trick called cross polarization). For DIC, cross polarization increases contrast, decreases error, and attenuates saturated pixels that prevent sub-pixel correlation (LePage, Daly, Shaw. [doi:10.1007/s11340-016-0129-2](https://doi.org/10.1007/s11340-016-0129-2)).
-+ Lastly, using a fan to gently blow air over the DIC setup is pragmatic because the turbulent flow prevents heat waves from distorting the images (Jones, Reu. [https://doi.org/10.1007/s11340-017-0354-3](https://doi.org/10.1007/s11340-017-0354-3)).
++ Lastly, using a fan to gently blow air over the DIC setup is pragmatic because the turbulent flow prevents heat waves from distorting the images (Jones, Reu. [doi:10.1007/s11340-017-0354-3](https://doi.org/10.1007/s11340-017-0354-3)).
 
 #### Best practices for cleaning cameras
 
