@@ -128,6 +128,18 @@ For even smaller speckles than powders (about 20 to 100 nanometer speckle size, 
 #### Lithographed patterns
 Lithography is another method for achieving small speckle size, with the benefit of  a higher degree of control than most other microscale patterning methods (Cannon, et al. [doi:10.1007/978-3-319-51439-0_34](https://doi.org/10.1007/978-3-319-51439-0_34)).
 
+### Speckle pattern gallery
+
+To illustrate some of these concepts about speckle patterns, here are examples. 
+
+First, this is a carbon fiber that has been speckled with gold nanoparticles, following the method of Kammers and Daly. Recall that a pattern should have random positions of uniformly-sized speckles. This pattern accomplishes both of these goals pretty well. The nanoparticles are all about 50 nanometers in diameter and positioned randomly. However, there are occassional clumps of nanoparticles that would detract slightly from the correlation quality. 
+
+<br /><br />![Example nanoparticle speckle pattern on carbon fiber]({{site.baseurl}}/assets/img/20170125_0002sm.png)<br /><br />
+
+Second, this is an airbrush-painted speckle pattern on a metal sample. There is good randomness in the speckle positions, but unlike the nanoparticle pattern above, this painted pattern suffers from non-uniform speckle size. Some of the speckles are too large (much larger than 7 pixels in diameter) and others are too small (less than 3 pixels in diameter). Nonetheless, this pattern would likely still correlate and produce results, albeit with less spatial resolution than possible for given the field of view. 
+
+<br /><br />![Example paint speckle pattern on metal sample]({{site.baseurl}}/assets/img/20160720A-0001_1.png)<br /><br />
+
 #### Further reading
 1. Dong, Y. L., and B. Pan. "A Review of Speckle Pattern Fabrication and Assessment for Digital Image Correlation." Experimental Mechanics (2017): 1-21. [doi:10.1007/s11340-017-0283-1](https://doi.org/10.1007/s11340-017-0283-1).
 1. Kammers, A. D., and S. Daly. "Small-scale patterning methods for digital image correlation under scanning electron microscopy." Measurement Science and Technology 22.12 (2011): 125501. [doi:10.1088/0957-0233/22/12/125501](https://doi.org/10.1088/0957-0233/22/12/125501).
