@@ -179,7 +179,7 @@ Building a successful DIC setup requires making the right equipment choices. For
 
 ### DIC setup example
 
-An example of a 3-D DIC system is shown below. There are two cameras with two lenses, two lights in stereo with the cameras (larger lights), and another fiber optic light for back-lighting the glass calibration grid. Note the tensile sample in the mechanical testing frame has a mechanical extensometer on its gauge section. Also, there is a fan gently blowing air between the cameras and the sample to minimize heat waves, following Jones and Reu ([doi:10.1007/s11340-017-0354-3](https://doi.org/10.1007/s11340-017-0354-3)).
+An example of a 3-D DIC system is shown below. There are two cameras with two lenses, two lights in stereo with the cameras (larger lights), and another fiber optic light for back-lighting the glass calibration grid. Note the tensile sample in the mechanical testing frame has a mechanical extensometer on its gauge section. Also, there is a fan outside of the image for gently blowing air between the cameras and the sample to minimize heat waves, following Jones and Reu ([doi:10.1007/s11340-017-0354-3](https://doi.org/10.1007/s11340-017-0354-3)).
 
 <br />![DIC example setup]({{site.baseurl}}/assets/img/setup_photo1.jpg)<br /><br />
 
