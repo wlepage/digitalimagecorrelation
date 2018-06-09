@@ -155,7 +155,7 @@ The first consideration is selecting the appropriate image magnification. The im
 
 Building a successful DIC setup requires making the right equipment choices. For optical DIC systems with cameras, lenses, and lights, there are a few selection criteria that optimize the system. 
 
-#### Tips on cameras, lenses, and lights
+### Tips on cameras, lenses, and lights
 + For DIC images, color is superfluous and can be problematic. The best practice is to select black-and-white cameras. Often, cameras that are marketed for machine vision applications are very suitable for DIC, as well.
 + The camera sensor should have low noise, high quantum efficiency, and high dynamic range. Historically, charge-coupled device (CCD) sensors have outperformed complementary metal--oxide--semiconductor (CMOS) sensors, but new advancements in sensor technologies have leveled the playing field between CCD sensors and the next-generation of CMOS sensors (e.g. Sony Pregius). 
 + Lenses should have low distortion. The best lenses for DIC are _telecentric_, which means that the sample's magnification does not vary within the lenses depth or field of view. 
@@ -168,7 +168,7 @@ Building a successful DIC setup requires making the right equipment choices. For
 + For maximizing optical DIC results, polarizing filters can be placed orthogonally on the lights and lenses (a photography trick called cross polarization). For DIC, cross polarization increases contrast, decreases error, and attenuates saturated pixels that prevent sub-pixel correlation (LePage, Daly, Shaw. [doi:10.1007/s11340-016-0129-2](https://doi.org/10.1007/s11340-016-0129-2)).
 + Lastly, using a fan to gently blow air over the DIC setup is pragmatic because the turbulent flow prevents heat waves from distorting the images (Jones, Reu. [doi:10.1007/s11340-017-0354-3](https://doi.org/10.1007/s11340-017-0354-3)).
 
-#### Best practices for cleaning cameras
+### Best practices for cleaning cameras
 
 1. The lenses and cameras must be cleaned to remove dust. Two easy ways to check for dust on DIC gear: 
 	+ Shine a flashlight on the lens or sensor cover and move the flashlight around at different angles. Any specks of dust will be more visible.
@@ -176,6 +176,12 @@ Building a successful DIC setup requires making the right equipment choices. For
 1. Be especially careful while cleaning cameras, lenses, and sensors (only clean sensors with protective covers or panels), because improperly cleaning the gear can introduce permanent scratches. For a primer on cleaning photography gear, [B&H photo has a great guide](http://www.bhphotovideo.com/explora/photography/tips-and-solutions/how-clean-your-lens-and-filters). 
 1. To remove dust, do not blow air at the lenses from an air can or from your mouth, which can introduce moisture on the lens that leaves a residue. Use a photography type duster instead. 
 1. If the duster doesn't get everything, then escalate to lens cleaning tissues. Only use new, clean lens cleaning tissues that have been moistened with lens cleaning solution.
+
+### DIC setup example
+
+An example of a 3-D DIC system is shown below. There are two cameras with two lenses, two lights in stereo with the cameras (larger lights), and another fiber optic light for back-lighting the glass calibration grid. Note the tensile sample in the mechanical testing frame has a mechanical extensometer on its gauge section. Also, there is a fan gently blowing air between the cameras and the sample to minimize heat waves, following Jones and Reu ([doi:10.1007/s11340-017-0354-3](https://doi.org/10.1007/s11340-017-0354-3)).
+
+<br />![DIC example setup]({{site.baseurl}}/assets/img/setup_photo1.jpg)<br /><br />
 
 #### Further reading
 1. Reu, Phillip. "Stereo‐Rig Design: Creating the Stereo‐Rig Layout--Part 1." Experimental Techniques 36.5 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00871.x](http://doi.org/10.1111/j.1747-1567.2012.00871.x).
