@@ -132,7 +132,7 @@ Lithography is another method for achieving small speckle size, with the benefit
 
 To illustrate some of these concepts about speckle patterns, here are examples. 
 
-First, this is a carbon fiber that has been speckled with gold nanoparticles, following the method of Kammers and Daly. Recall that a pattern should have random positions of uniformly-sized speckles. This pattern accomplishes both of these goals pretty well. The nanoparticles are all about 50 nanometers in diameter and positioned randomly. However, there are occassional clumps of nanoparticles that would detract slightly from the correlation quality. 
+First, this is a carbon fiber that has been speckled with gold nanoparticles, following the method of Kammers and Daly ([doi:10.1007/s11340-013-9734-5](https://doi.org/10.1007/s11340-013-9734-5)). Recall that a pattern should have random positions of uniformly-sized speckles. This pattern accomplishes both of these goals pretty well. The nanoparticles are all about 50 nanometers in diameter and positioned randomly. However, there are occassional clumps of nanoparticles that would detract slightly from the correlation quality. 
 
 <br />![Example nanoparticle speckle pattern on carbon fiber]({{site.baseurl}}/assets/img/20170125_0002sm.png)<br /><br />
 
