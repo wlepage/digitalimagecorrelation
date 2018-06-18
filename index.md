@@ -55,23 +55,11 @@ Two important questions for planning DIC experiments are (1) What is the smalles
 
 Computing strains is a common post-processing step with the displacements from DIC. Generally, spatial strains are computed from the displacements with a spatial derivative that has a filtering operator. This filtering in the strain calculation can blur highly-localized deformations with sharp features or discontinuities. With spatial filtering to compute the strains, the sharp features are smoothed out and can hide key phenomena like slip bands (Stinville, et al. [doi:10.1007/s11340-015-0083-4](http://doi.org/10.1007/s11340-015-0083-4)). 
 
-A second precaution for using DIC strain data is that the field of strains calculated with spatial derivatives on DIC displacements make a small strain assumption (from _infinitesimal strain_ theory, in contrast with _finite strain_ theory). In the small strain assumption, the higher order term of the strain calculation is neglected. Broadly, the small strain assumption has less than 10% error for strains less than 10%, but is problematic for strains larger than 10%. An alternative to using spatial strains with DIC data is creating "virtual extensometers" that measure a one-dimensional engineering strain (change in length divided by original length). For a uniaxial tension experiment with DIC, many virtual extensometers can be defined across the gauge length of the sample, and then an average engineering strain (and statistics on the measurement noise) can be computed.
-
-
-## Suggestions for when _not_ to use DIC
-
-DIC is not a miraculous measurement technique, and there are many experiments in solid mechanics that are better suited to other techniques. Here is a non-exhaustive list. 
-1. #### __Measuring very small strains__ 
-The minimum resolvable strain for DIC varies from setup to setup, but a rule of thumb is that the noise floor of DIC in practice is about 0.1 px. If the strain(s) of interest would correspond to displacements of less than 0.1 px displacement, then DIC will not give a reliable measurement. Consider mechanical extensometers, laser extensometers, and strain gauges instead.
-1. #### __Measuring deformations with low pixel-size sensors (e.g. ultra high speed cameras)__
-DIC has lower spatial resolution than other full-field measurement techniques (most notably, the grid method). The grid method is a Fourier-based analysis on the deformation of a regular grid pattern. More information and open-source codes on the grid method can be found at [thegridmethod.net](http://www.thegridmethod.net/).
-
 
 #### Further reading
 1. Sutton, Michael A., Jean Jose Orteu, and Hubert Schreier. Image correlation for shape, motion and deformation measurements: basic concepts, theory and applications. Springer Science & Business Media, 2009. [doi:10.1007/978-0-387-78747-3](https://doi.org/10.1007/978-0-387-78747-3)
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [doi:10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
-1. Wikipedia, Infinitesimal strain theory. [https://en.wikipedia.org/wiki/Infinitesimal_strain_theory](https://en.wikipedia.org/wiki/Infinitesimal_strain_theory).
 
 <a name="DICtypes"></a>
 # 2. Types of DIC algorithms
