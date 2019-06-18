@@ -49,7 +49,7 @@ Two important questions for planning DIC experiments are (1) What is the smalles
 
 <br /><br />![Interpolation]({{site.baseurl}}/assets/img/interpolation-01.png)<br /><br />
 
-(2) Since the noise floor of DIC in practice is about 0.10 px, then the images should be captured with an exposure time that limits the sample motion during the exposure time to less than 0.10 px (or even less than 0.05 px to be safe). If the exposure time exceeded the noise floor of the calculation, then the images would have blurring that would deteriorate the DIC displacement accuracy. For example, if the sample displacement is 1 micron/second, and the imaging resolution is 10 microns/px, then the DIC noise floor is `0.10 px * (10 microns/px) = 1 micron`, so the image exposure time should be less than 1 second (or less than 0.1 second to be safe, by matching the limit of 0.01 px for DIC algorithms). 
+(2) Since the noise floor of DIC in practice is about 0.10 px, then the images should be captured with an exposure time that limits the sample motion during the exposure time to less than 0.10 px (or even less than 0.01 px to be safe). If the exposure time exceeded the noise floor of the calculation, then the images would have blurring that would deteriorate the DIC displacement accuracy. For example, if the sample displacement is 1 micron/second, and the imaging resolution is 10 microns/px, then the DIC noise floor is `0.10 px * (10 microns/px) = 1 micron`, so the image exposure time should be less than 1 second (or less than 0.1 second to be safe, by matching the limit of 0.01 px for DIC algorithms). 
 
 ## Strain calculation
 
