@@ -217,15 +217,3 @@ An important question for a DIC practitioner to ask is, "How accurate are these 
 
 1. Measure the noise floor of the setup and speckle pattern by capturing the "Type A" errors from repeated, static images (no motion or deformation between images). The mean and distribution of the displacements represent the noise floor (which should be about 0.1 px, and is not zero because of noise and error). (Reu, [doi:10.1007/978-3-319-22446-6_24](https://doi.org/10.1007/978-3-319-22446-6_24)). 
 1. Compare the displacements (or strains) from DIC with a second measurement. A direct comparison with displacements can be accomplished with precise rigid body translations on the sample from a trusted source (e.g. Vernier micrometer or precision linear stage). The displacements can also be measured from an LVDT, laser, or other techniques. Strains and deformations can be compared with extensometers (mechanical or laser), as well as strain gauges (although strain gauges are limited to small strains). 
-
-
-<!--
-
-<a name="DICcodes"></a>
-# Comparison of DIC codes
-
-Common codes (open source and commercial, link to DIC Challenge)
-
-
-
- -->
