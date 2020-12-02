@@ -110,6 +110,9 @@ For hyperelastic materials (including many elastomers, polymers, and biomaterial
 #### Powder particles
 For moist or sticky materials, powder particles may adhere better than paint. Graphite powder is popular for dark speckles, and alumina or magnesium oxide can be used for a white basecoat. Another use for powder patterns is achieving smaller speckles than painted patterns can produce. Using a combination of filters and compressed air, powder particle patterns smaller than 10 microns can be deposited on a smooth/polished sample to form a speckle pattern (Jonnalagadda, et al. [doi:10.1007/s11340-008-9212-7](https://doi.org/10.1007/s11340-008-9212-7)).
 
+#### Laser engraving
+In some cases, the sample surface can be engraved with laser cutter. This method provides patterns that can remain intact during high-temperature tests (Hu, et al. [doi:10.1007/s40799-018-0256-z](https://doi.org/10.1007/s40799-018-0256-z)).
+
 #### Nanoparticles
 For even smaller speckles than powders (about 20 to 100 nanometer speckle size, for scanning electron microscopy digital image correlation), self-assembled nanoparticles can be utilized (Kammers and Daly, [doi:10.1007/s11340-013-9734-5](https://doi.org/10.1007/s11340-013-9734-5)). 
 
