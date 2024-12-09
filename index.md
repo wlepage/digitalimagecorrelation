@@ -45,10 +45,7 @@ Two important dimensions in a DIC calculation are the _subset size_ and the _ste
 
 Two important questions for planning DIC experiments are (1) What is the smallest displacement that this experiment can reliably measure?, and (2) What is the image exposure time that should be used?
 
-(1) The smallest possible displacement measurement is limited by the quality of the experiment's images. In general, DIC algorithms are capable of detecting sub-pixel displacements on the order of 0.01 px. Sub-pixel displacement resolution is enabled by interpolation (generally bicubic spline interpolation) on the image data. A simple example of this interpolation is demonstrated below on a portion of an image from a DIC experiment. In practice, experimental variables introduce error into the measurements, and the smallest displacement measurements that can be expected from DIC, often called the _noise floor_, is on the order of 
-
-
-0 px.
+(1) The smallest possible displacement measurement is limited by the quality of the experiment's images. In general, DIC algorithms are capable of detecting sub-pixel displacements on the order of 0.01 px. Sub-pixel displacement resolution is enabled by interpolation (generally bicubic spline interpolation) on the image data. A simple example of this interpolation is demonstrated below on a portion of an image from a DIC experiment. In practice, experimental variables introduce error into the measurements, and the smallest displacement measurements that can be expected from DIC, often called the _noise floor_, is on the order of 0.10 px.
 
 <br /><br />![Interpolation]({{site.baseurl}}/assets/img/interpolation-01.png)<br /><br />
 
