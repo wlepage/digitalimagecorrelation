@@ -219,4 +219,18 @@ For 3-D DIC, the calibration procedure varies among DIC software packages, but g
 An important question for a DIC practitioner to ask is, "How accurate are these measurements?" Evaluating DIC errors is important because DIC results can vary widely among setups, speckle patterns, correlation parameters, and other conditions. It is difficult to separate the relative contributions of individual error sources in DIC experiments, but the overall error of an experiment can be estimated with appropriate measurements. Two possible validation and error evaluation methods are discussed below. 
 
 1. Measure the noise floor of the setup and speckle pattern by capturing the "Type A" errors from repeated, static images (no motion or deformation between images). The mean and distribution of the displacements represent the noise floor (which should be between about 0.01 and 0.1 px; it is not zero because of noise and error). (Reu, [doi:10.1007/978-3-319-22446-6_24](https://doi.org/10.1007/978-3-319-22446-6_24)). 
-1. Compare the displacements (or strains) from DIC with a second measurement. A direct comparison with displacements can be accomplished with precise rigid body translations on the sample from a trusted source (e.g. Vernier micrometer or precision linear stage). The displacements can also be measured from an LVDT, laser, or other techniques. Strains and deformations can be compared with extensometers (mechanical or laser), as well as strain gauges (although strain gauges are limited to small strains). 
+1. Compare the displacements (or strains) from DIC with a second measurement. A direct comparison with displacements can be accomplished with precise rigid body translations on the sample from a trusted source (e.g. Vernier micrometer or precision linear stage). The displacements can also be measured from an LVDT, laser, or other techniques. Strains and deformations can be compared with extensometers (mechanical or laser), as well as strain gauges (although strain gauges are limited to small strains).
+
+
+<a name="further"></a>
+# 7. Further suggestions
+
+Readers are strongly encouraged to continue their study of DIC with the ["Good Practices Guide for Digital Image Correlation" from the International DIC Society](http://www.idics.org/guide). 
+
+Also, here is a non-exhaustive list of open-source DIC codes, in alphabetical order:
+
+1. DICe (<a href="https://github.com/dicengine/dice">https://github.com/dicengine/dice</a>)
+1. µDIC (<a href="https://doi.org/10.1016/j.softx.2019.100391">https://doi.org/10.1016/j.softx.2019.100391</a>)
+1. NCorr (<a href="https://www.ncorr.com">https://www.ncorr.com</a>)
+1. RealPi2dDIC (<a href="https://doi.org/10.1016/j.softx.2020.100645">https://doi.org/10.1016/j.softx.2020.100645</a>)
+1. SUN-DIC (<a href="https://github.com/gventer/SUN-DIC">https://github.com/gventer/SUN-DIC</a>)
