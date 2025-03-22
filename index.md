@@ -223,7 +223,7 @@ An important question for a DIC practitioner to ask is, "How accurate are these 
 
 
 <a name="further"></a>
-# 7. Further suggestions
+# 7. Further suggestions and codes
 
 Readers are strongly encouraged to continue their study of DIC with the ["Good Practices Guide for Digital Image Correlation" from the International DIC Society](http://www.idics.org/guide). 
 
