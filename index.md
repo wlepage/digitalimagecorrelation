@@ -8,8 +8,7 @@ Digital image correlation (DIC) is a surface displacement measurement technique 
 
 The content of [digitalimagecorrelation.org](http://digitalimagecorrelation.org/) is organized for DIC learners to gather the most important information by reading from start to finish, while more experienced users can jump ahead to a section of interest. The subject matter is intentionally simplified to be accessible to engineers of all skill levels, including undergraduates. Mathematical definitions and derivations are avoided, but should be reviewed and understood by DIC practitioners once their basic skill level is established. At the conclusion of each section, suggestions are provided for more detailed resources.
 
-<a name="fundamentals"></a>
-# 1. DIC fundamentals
+# 1. DIC fundamentals {#fundamentals}
 The basic operation of DIC is tracking a pattern (often called a [_speckle pattern_](#patterning)) in a sequence of images. The process of a DIC experiment (illustrated below) can be divided into three steps: (1) obtain a pattern on the sample for tracking, (2) capture images of the sample during motion/deformation, and (3) analyze the images to compute the sample surface's displacements.
 <br /><br />![DIC process]({{site.baseurl}}/assets/img/DICprocess-01.png)<br /><br />
 
@@ -61,8 +60,7 @@ Computing strains is a common post-processing step with the displacements from D
 1. Michel Bornert, François Hild, Jean-José Orteu and Stéphane Roux. Digital image correlation. Chapter 6 of _Full-field measurements and identification in solid mechanics_, Grédiac, Michel, and François Hild, eds. John Wiley & Sons, 2012. [doi:10.1002/9781118578469.ch6](http://doi.org/10.1002/9781118578469.ch6)
 1. François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012.
 
-<a name="DICtypes"></a>
-# 2. Types of DIC algorithms
+# 2. Types of DIC algorithms {#DICtypes}
 One way to categorize DIC algorithms is by the dimensions of the calculated displacements. For images collected by just one camera, only two dimensions of displacements can be known. This is called two-dimensional, or _2-D DIC_ (also commonly written as 2D-DIC). When images from more than one camera are used, depth can be measured with triangulation. This is called three-dimensional, or _3-D DIC_ (also commonly written as 3D-DIC). 
 
 2-D DIC assumes that the sample's deformations are constrained to a plane that is parallel to the camera. In practice, out-of-plane motion can be a large source of error for 2-D DIC (Sutton, et al. [doi:10.1016/j.optlaseng.2008.05.005](https://doi.org/10.1016/j.optlaseng.2008.05.005)). Also, images can have distortions that introduce error into DIC measurements. For example, camera lenses and optical microscopes generally have barrel distortions. 
@@ -81,8 +79,7 @@ A second way to categorize DIC algorithms is by the pattern matching technique. 
 1. (digital volume correlation, DVC) Franck, C., et al. "Three-dimensional full-field measurements of large deformations in soft materials using confocal microscopy and digital volume correlation." Experimental Mechanics 47.3 (2007): 427-438. [doi:10.1007/s11340-007-9037-9](https://doi.org/10.1007/s11340-007-9037-9)
 1. (local and global DIC) François Hild and Stéphane Roux. Digital image correlation. Chapter 5 of  _Optical methods for solid mechanics: a full-field approach_, Rastogi, Pramod K., and Erwin Hack, eds. John Wiley & Sons, 2012. 
 
-<a name="patterning"></a>
-# 3. Speckle patterning
+# 3. Speckle patterning {#patterning}
 
 To match the reference and deformed images, DIC tracks features on the sample surface that collectively form the _speckle pattern_. Occasionally, a sample's surface will inherently have features that suffice for a _natural_ speckle pattern, but typically an _artificial_ speckle pattern must be applied to the sample. The quality of DIC results are strongly dependent on the speckle pattern, and optimum speckle patterns meet the following conditions.
 1. The pattern covers the sample surface in the area of interest. 
@@ -138,8 +135,7 @@ Second, this is an airbrush-painted speckle pattern on a metal sample. There is 
 1. Reu, Phillip. "Hidden Components of 3D‐DIC: Interpolation and Matching--Part 2." Experimental Techniques 36.3 (2012): 3-4. [doi:10.1111/j.1747-1567.2012.00838.x](http://doi.org/10.1111/j.1747-1567.2012.00838.x)
 1. Barranger, Y., P. Doumalin, J. C. Dupré, and A. Germaneau. "Strain measurement by digital image correlation: influence of two types of speckle patterns made from rigid or deformable marks." Strain 48.5 (2012): 357-365. [doi:10.1111/j.1475-1305.2011.00831.x](https://doi.org/10.1111/j.1475-1305.2011.00831.x)
 
-<a name="imaging"></a>
-# 4. Image capturing
+# 4. Image capturing {#imaging}
 
 The key step of data collection for DIC is capturing images. In general, good photography or microscopy practices translate to good DIC images, but there are extra considerations for optimizing DIC results. 
 
@@ -188,8 +184,7 @@ Patternson's clever double laser triggering system for dynamic events (https://d
 -->
 
 
-<a name="calibration"></a>
-# 5. Calibration
+# 5. Calibration {#calibration}
 
 For 2-D DIC, the only calibration is a length scale conversion from the pixel space of DIC to the image's magnification, so the calibration needs a line of known length (such as the horizontal field width, or HFW). For 3-D DIC, the cameras must be calibrated with respect to one another in space, so a line is no longer sufficient. Thus, common calibration procedures involve a calibration grid, or a plane of known dimensions. This concept is illustrated below. The artificial speckle pattern and mock calibration grid were generated with the Speckle Generator and Target Generator softwares from Correlated Solutions, Inc.
 
@@ -213,8 +208,7 @@ For 3-D DIC, the calibration procedure varies among DIC software packages, but g
 
 
 
-<a name="errors"></a>
-# 6. Validation and error evaluation
+# 6. Validation and error evaluation {#errors}
 
 An important question for a DIC practitioner to ask is, "How accurate are these measurements?" Evaluating DIC errors is important because DIC results can vary widely among setups, speckle patterns, correlation parameters, and other conditions. It is difficult to separate the relative contributions of individual error sources in DIC experiments, but the overall error of an experiment can be estimated with appropriate measurements. Two possible validation and error evaluation methods are discussed below. 
 
@@ -222,8 +216,7 @@ An important question for a DIC practitioner to ask is, "How accurate are these 
 1. Compare the displacements (or strains) from DIC with a second measurement. A direct comparison with displacements can be accomplished with precise rigid body translations on the sample from a trusted source (e.g. Vernier micrometer or precision linear stage). The displacements can also be measured from an LVDT, laser, or other techniques. Strains and deformations can be compared with extensometers (mechanical or laser), as well as strain gauges (although strain gauges are limited to small strains).
 
 
-<a name="further"></a>
-# 7. Further suggestions and codes
+# 7. Further suggestions and codes {#further}
 
 Readers are strongly encouraged to continue their study of DIC with the ["Good Practices Guide for Digital Image Correlation" from the International DIC Society](http://www.idics.org/guide). 
 
