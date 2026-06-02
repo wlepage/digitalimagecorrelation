@@ -1,45 +1,78 @@
 <!doctype html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | relative_url }}">
+    <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+    <meta name="theme-color" content="#ffffff">
+
+    {% if page.use_math %}
+    <!-- KaTeX (loaded only on pages with use_math: true) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.querySelector('.doc-article'), {delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+    {% endif %}
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <a href="{{ site.url }}"><h1>{{ site.title | default: site.github.repository_name }}</h1></a>
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
-        <p><a href="#fundamentals">1. DIC fundamentals</a></p>
-        <p><a href="#DICtypes">2. Types of DIC algorithms</a></p>
-        <p><a href="#patterning">3. Speckle patterning</a></p>
-        <p><a href="#imaging">4. Image capturing</a></p>
-        <p><a href="#calibration">5. Calibration</a></p>
-        <p><a href="#errors">6. Validation and error evaluation</a></p>
-        <p><a href="#further">7. Further suggestions and codes</a></p>
-      </header>
-      <section>
+    <a class="skip-link" href="#content">Skip to content</a>
 
-      {{ content }}
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="wordmark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <p class="tagline">{{ site.description }}</p>
+      </div>
+    </header>
 
-      </section>
-      <footer>
-        {% if site.github.is_project_page %}
-        <p><a href="{{ site.url }}">{{ site.title | default: site.github.repository_name }}</a> is a project created for the experimental mechanics community by <a href="http://wlepage.me/">Will LePage</a>. All content is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC-BY-4.0)</a> license. PDF versions available in <a href="https://drive.google.com/file/d/1VTYMatAeannte4a_mMx7cqp8M5QO1oph/view?usp=sharing">English</a> and <a href="https://drive.google.com/file/d/1cqHznZfHPYdZ5HkjaAk0MXuoRJ6_pCji/view?usp=sharing">German</a>, by <a href="https://www.hs-esslingen.de/en/staff/steffen-greuling">Steffen Greuling</a>. Thank you to <a href="https://github.com/orderedlist">orderedlist</a> for <a href="https://github.com/pages-themes/minimal">minimal</a>, the base of this page's theme.</p>
-        {% endif %}
-      </footer>
+    <div class="layout container">
+      <aside class="toc" aria-label="Section navigation">
+        <nav aria-labelledby="toc-heading">
+          <h2 id="toc-heading" class="toc-title">Contents</h2>
+          <!-- No-JS fallback: the seven top-level sections.
+               main.js replaces this with a full, nested, scroll-spy TOC. -->
+          <ol class="toc-list" data-toc-fallback>
+            <li><a href="#fundamentals">1. DIC fundamentals</a></li>
+            <li><a href="#DICtypes">2. Types of DIC algorithms</a></li>
+            <li><a href="#patterning">3. Speckle patterning</a></li>
+            <li><a href="#imaging">4. Image capturing</a></li>
+            <li><a href="#calibration">5. Calibration</a></li>
+            <li><a href="#errors">6. Validation and error evaluation</a></li>
+            <li><a href="#further">7. Further suggestions and codes</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <main id="content" class="doc-article">
+        {{ content }}
+      </main>
     </div>
-    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
 
+    <footer class="site-footer">
+      <div class="footer-inner container">
+        <p>
+          <a href="{{ '/' | relative_url }}">{{ site.title }}</a> is a project created for the
+          experimental mechanics community by <a href="http://wlepage.me/">Will LePage</a>.
+          All content is licensed under the
+          <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC-BY-4.0)</a>
+          license. PDF versions available in
+          <a href="https://drive.google.com/file/d/1VTYMatAeannte4a_mMx7cqp8M5QO1oph/view?usp=sharing">English</a>
+          and
+          <a href="https://drive.google.com/file/d/1cqHznZfHPYdZ5HkjaAk0MXuoRJ6_pCji/view?usp=sharing">German</a>,
+          by <a href="https://www.hs-esslingen.de/en/staff/steffen-greuling">Steffen Greuling</a>.
+          Thank you to <a href="https://github.com/orderedlist">orderedlist</a> for
+          <a href="https://github.com/pages-themes/minimal">minimal</a>, the original base of this page's theme.
+        </p>
+      </div>
+    </footer>
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
   </body>
 </html>

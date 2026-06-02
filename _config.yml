@@ -1,5 +1,20 @@
 title: digitalimagecorrelation.org
 description: A practical guide to DIC.
+lang: en-US
+url: "https://digitalimagecorrelation.org"
+
 markdown: kramdown
-google_analytics: UA-104922373-1
-theme: jekyll-theme-minimal
+kramdown:
+  auto_ids: true          # generate id="" on all headings for deep links
+  input: GFM
+  syntax_highlighter: rouge
+
+# Don't copy these into the built _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+  - vendor
+  - "*.ai"
+  - "*.tex"
